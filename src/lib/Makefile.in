@@ -431,6 +431,9 @@ ECHO_T = @ECHO_T@
 EGREP = @EGREP@
 EXEEXT = @EXEEXT@
 F77 = @F77@
+FC = @FC@
+FCFLAGS = @FCFLAGS@
+FCLIBS = @FCLIBS@
 FFLAGS = @FFLAGS@
 FGREP = @FGREP@
 GREP = @GREP@
@@ -483,6 +486,7 @@ ac_ct_AR = @ac_ct_AR@
 ac_ct_CC = @ac_ct_CC@
 ac_ct_DUMPBIN = @ac_ct_DUMPBIN@
 ac_ct_F77 = @ac_ct_F77@
+ac_ct_FC = @ac_ct_FC@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
 am__quote = @am__quote@
@@ -1385,6 +1389,8 @@ xgenieIF.c \
 Opcodes.h \
 xgenie.h
 
+AM_FFLAGS = -DGHOST_LIBDIR=\"@libdir@\" -DGHOST_LIBEXECDIR=\"@libexecdir@\"
+AM_CPPFLAGS = -DGHOST_LIBDIR=\"@libdir@\" -DGHOST_LIBEXECDIR=\"@libexecdir@\"
 all: all-am
 
 .SUFFIXES:

@@ -215,6 +215,9 @@ ECHO_T = @ECHO_T@
 EGREP = @EGREP@
 EXEEXT = @EXEEXT@
 F77 = @F77@
+FC = @FC@
+FCFLAGS = @FCFLAGS@
+FCLIBS = @FCLIBS@
 FFLAGS = @FFLAGS@
 FGREP = @FGREP@
 GREP = @GREP@
@@ -267,6 +270,7 @@ ac_ct_AR = @ac_ct_AR@
 ac_ct_CC = @ac_ct_CC@
 ac_ct_DUMPBIN = @ac_ct_DUMPBIN@
 ac_ct_F77 = @ac_ct_F77@
+ac_ct_FC = @ac_ct_FC@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
 am__quote = @am__quote@
@@ -317,7 +321,7 @@ EXTRA_DIST = xgenie.tcl
 wraplibexecdir = $(prefix)/libexec
 wraplibexec_SCRIPTS = xgenie.tcl
 xgenie_SOURCES = xgenie.c Plot.c PlotGraphics.c PlotReplay.c Plot.h PlotP.h ghost.xbm
-INCLUDES = -I$(srcdir)/../lib @X_CFLAGS@
+AM_CPPFLAGS = -I$(srcdir)/../lib @X_CFLAGS@ -DGHOST_LIBDIR=\"@libdir@\" -DGHOST_LIBEXECDIR=\"@libexecdir@\"
 LDADD = @X_LIBS@ -lXt @X_PRE_LIBS@ -lX11 @X_EXTRA_LIBS@
 all: all-am
 
