@@ -55,7 +55,7 @@ void STDCALL GETARG(int*,char*,int,int*);
 void STDCALL GETARG(int*,char*,int);
 #endif
 int  GetArgCount();
-void GetArg();
+void GetArg(int*, char*, int);
 void STDCALL XPOLYL(int* xpoints, int* ypoints, int* numpoints);
 void STDCALL XPOLYM(int* xpoints, int* ypoints, int* numpoints);
 void STDCALL XFILLP(int* xpoints, int* ypoints, int* numpoints);
@@ -178,7 +178,7 @@ void STDCALL XINIT(iresx,iresy,idepth)
     if (ghost_env) 
       sprintf(ServerPath,"%s/libexec/xgenie\0",ghost_env);
     else
-      sprintf(ServerPath,"%s/libexec/xgenie\0",GHOST_EXEC_PREFIX);
+      sprintf(ServerPath,"%s/xgenie\0",GHOST_LIBEXECDIR);
   }
 #endif
 

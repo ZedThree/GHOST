@@ -17,6 +17,6 @@ PlotGraphics.o: PlotGraphics.c PlotP.h Plot.h
 PlotReplay.o: PlotReplay.c PlotP.h Plot.h
 xgenie.o: xgenie.c ghost.xbm Plot.h $(srcdir)/../lib/Opcodes.h
 
-INCLUDES =  -I$(srcdir)/../lib @X_CFLAGS@
+AM_CPPFLAGS =  -I$(srcdir)/../lib @X_CFLAGS@ -DGHOST_LIBDIR=\"@libdir@\" -DGHOST_LIBEXECDIR=\"@libexecdir@\"
 
 LDADD = @X_LIBS@ -lXt @X_PRE_LIBS@ -lX11 @X_EXTRA_LIBS@

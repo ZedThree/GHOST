@@ -56,4 +56,5 @@ include $(srcdir)/libxghost.mak
 
 xgenieIF.o: xgenieIF.c xgenie.h Opcodes.h
 
-
+AM_FFLAGS = -DGHOST_LIBDIR=\"@libdir@\" -DGHOST_LIBEXECDIR=\"@libexecdir@\"
+AM_CPPFLAGS = -DGHOST_LIBDIR=\"@libdir@\" -DGHOST_LIBEXECDIR=\"@libexecdir@\"

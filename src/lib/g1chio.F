@@ -59,7 +59,7 @@ C
 #ifdef _WIN32
       CALL GET_FONT_DIR(FNTDEF)
 #else
-      FNTDEF = GHOST_EXEC_PREFIX//'/lib/fonts'
+      FNTDEF = GHOST_LIBDIR//'/fonts'
 #endif
       FNTADD = '/GHOST80FONT'
       FNTAD  = '/GHOST80FNT'

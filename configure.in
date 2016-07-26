@@ -10,13 +10,15 @@ test "$prefix" = NONE && prefix=/opt/culham
 test "$exec_prefix" = NONE && exec_prefix=$prefix
 AC_DEFINE_UNQUOTED(GHOST_PREFIX,"${prefix}")
 AC_DEFINE_UNQUOTED(GHOST_EXEC_PREFIX,"${exec_prefix}")
+dnl AC_DEFINE_UNQUOTED(GHOST_LIBDIR,["${libdir}"])
+dnl AC_DEFINE_UNQUOTED(GHOST_LIBEXECDIR,["${libexecdir}"])
 
 dnl set default compilers and mandatory options
 case "$host" in 
   sparc-sun-solaris*)
     : ${CC=cc}
     : ${CXX=CC}
-    : ${F77=f77}
+    : ${FC=f77}
     AC_DEFINE(USEUNDERSCORE)
     AC_DEFINE(GHOST_RECL_UNIT,4)
     ;;
@@ -32,13 +34,13 @@ case "$host" in
     ;;
   mips-sgi-irix*)
     : ${CC=cc}
-    : ${F77=f77}
+    : ${FC=f77}
     AC_DEFINE(USEUNDERSCORE) 
     AC_DEFINE(GHOST_RECL_UNIT,1)
     ;;	
   *-hp-hpux*)
     : ${CC=c89}
-    : ${F77=fort77}
+    : ${FC=fort77}
     AC_DEFINE(GHOST_RECL_UNIT,4)
     : ${FFLAGS="+U77 -O"}
     ;;
@@ -56,14 +58,23 @@ dnl set default compiler options
 
 dnl Checks for programs.
 AC_PROG_CC
+AC_PROG_FC
 AC_PROG_F77
-AC_PROG_RANLIB
 AM_DISABLE_STATIC
 AM_PROG_LIBTOOL
 
 dnl Checks for header files.
 AC_PATH_XTRA
 AC_HEADER_STDC
+
+dnl Get flags for linking C programs against Fortran
+AC_FC_LIBRARY_LDFLAGS
+dnl Get flags for increasing the line length
+AC_FC_LINE_LENGTH([132])
+dnl The above two macros only work for FC and not F77 but automake
+dnl *really* wants to compile everything with F77, so switch the flags
+F77=${FC}
+FFLAGS=${FCFLAGS}
 
 AC_OUTPUT([Makefile src/Makefile src/lib/Makefile src/libexec/Makefile 
            src/bin/Makefile src/hershey/Makefile])
