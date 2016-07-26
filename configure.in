@@ -1,7 +1,9 @@
 dnl Process this file with autoconf to produce a configure script.
-AC_INIT(src/lib/paper.f)
-AM_INIT_AUTOMAKE(GHOST, 1.0.0)
+AC_INIT([GHOST], [1.1])
+AC_CONFIG_SRCDIR(src/lib/paper.f)
+AM_INIT_AUTOMAKE
 AC_CANONICAL_HOST
+LT_INIT
 
 dnl set default prefixes
 test "$prefix" = NONE && prefix=/opt/culham
