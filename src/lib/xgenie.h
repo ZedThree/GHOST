@@ -8,7 +8,7 @@
  *
  *
  * Status     : Released
- * QA check   : 
+ * QA check   :
  * QA date    :
  ***********************************************************************/
 
@@ -69,6 +69,14 @@
 #  define XDUMPB xdumpb
 #  define STDCALL
 #endif
+
+#ifdef __GNUC__
+#  undef IARGC
+#  undef GETARG
+#  define IARGC  _gfortran_iargc
+#  define GETARG _gfortran_getarg_i8
+#endif
+
 /****************  GLOBAL VARIABLES     ********************************/
 /****************  STATIC VARIABLES     ********************************/
 static char xgenie_hSID[] = "@(#)xgenie.h	1.3 CULHAM 08/09/01";
