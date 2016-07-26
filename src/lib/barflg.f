@@ -1,0 +1,34 @@
+      SUBROUTINE BARFLG(IFLAGS,NOFLGS)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. ( 109)   VERSION (A8.1)    06:MAY:86
+C          ------------------------------------------------
+C
+C          THIS SPECIFIES THE VALUES TO BE DRAWN
+C          BY INCBAR, INCHIS, MULBAR AND MULHIS.
+C
+C
+C          THE ARGUMENTS ARE AS FOLLOWS:
+C
+C          [IFLAGS] ARE THE FLAGS TO VALUES TO BE GRAPHED,
+C                   NON-ZERO TO INCLUDE.
+C          <NOFLGS> IS THE SIZE OF THE ARRAY.
+C
+C
+      INTEGER IFLAGS(NOFLGS)
+C
+      COMMON /T0MULF/ INFLGS(100)
+      COMMON /T0TRAC/ IPRINT
+C
+C
+      CALL G3INIT(2)
+C
+      IF (IPRINT.EQ.1) CALL G0MESG(166,0)
+C
+      DO 100 ISAVE= 1,100
+        IF (ISAVE.LE.NOFLGS) INFLGS(ISAVE)= IFLAGS(ISAVE)
+        IF (ISAVE.GT.NOFLGS) INFLGS(ISAVE)= 1
+  100 CONTINUE
+C
+      RETURN
+      END

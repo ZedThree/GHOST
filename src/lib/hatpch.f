@@ -1,0 +1,52 @@
+      SUBROUTINE HATPCH(IPITCH,IENABL)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. ( 334)   VERSION (A8.1)    12:OCT:95
+C          ------------------------------------------------
+C
+C          THIS SETS THE PITCH FOR CROSS-HATCHING.
+C
+C
+C          THE ARGUMENTS ARE AS FOLLOWS:
+C
+C          <IPITCH>, THE PITCH TO BE SET,
+C          <IENABL>, CONTROLS WHICH PARAMETERS ARE SET:
+C                =1, TO APPLY TO THE FIRST SET OF LINES,
+C                =2, TO APPLY TO THE SECOND SET OF LINES,
+C                =3, TO APPLY TO BOTH SETS OF LINES.
+C
+C
+      REAL    RDATA(1)
+      INTEGER IDATA(2)
+C
+      COMMON /T0HFLG/ NHFLG0(255)
+      COMMON /T0HNUM/ IHATN0
+      COMMON /T0HPIT/ IPITH0(255,2)
+      COMMON /T0TRAC/ IPRINT
+      COMMON /T0TRAI/ ITRAC1,ITRAC2,ITRAC3,ITRAC4
+C
+      DATA RDATA /0.0/
+C
+C
+      CALL G3INIT(2)
+      ITRAC1= IPITCH
+      IF (IPRINT.EQ.1) CALL G0MESG(181,5)
+      IF (IENABL.EQ.0) RETURN
+C
+      IPITH= IABS(IPITCH)
+      IF (IPITH.GT.255) IPITH= 255
+      IF (IPITH.LT.1) IPITH= 1
+C
+      IENAB= IENABL
+      IF (IENAB.LT.1.OR.IENAB.GT.3) IENAB= 3
+      IF (MOD(IENAB,2).EQ.1) IPITH0(IHATN0,1)= IPITH
+      IF (IENAB/2.EQ.1)      IPITH0(IHATN0,2)= IPITH
+C
+      NHFLG0(IHATN0)= 1
+C
+      IDATA(1)= IPITH
+      IDATA(2)= IENAB
+      CALL G3LINK(5,6,-2,IDATA,RDATA)
+C
+      RETURN
+      END

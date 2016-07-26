@@ -1,0 +1,46 @@
+      SUBROUTINE G0CFL5(INDCL,NSIDES,XP,XQ,XR,XS,XT,YP,YQ,YR,YS,YT)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. ( 189)   VERSION (A8.1)    02:MAR:92
+C          ------------------------------------------------
+C
+C          THIS FILLS THE SPECIFIED POLYGON.
+C
+C
+C          <INDCL > IS THE CONTOUR LEVEL INDEX NUMBER.
+C          <NSIDES> IS THE NUMBER OF SIDES OF THE POLYGON.
+C          <XP,...> AND
+C          <YP,...> ARE THE VERTICES OF THE POLYGON.
+C
+C
+      REAL RDATA(1)
+      INTEGER IDATA(1)
+C
+      COMMON /T0KLST/ LSTCL0(100),LENLST
+C
+      DATA RDATA /0.0/
+C
+C
+      KOLIND= MOD(INDCL,LENLST)
+      IF (KOLIND.EQ.0) KOLIND= LENLST
+C
+      KOLLOR= LSTCL0(KOLIND)
+      IF (KOLLOR.EQ.0) RETURN
+C
+      IDATA(1)= 0
+      IF (KOLLOR.LT.0) IDATA(1)= 1
+C
+      CALL G3LINK(5,13,-1,IDATA,RDATA)
+      IDATA(1)= IABS(KOLLOR)
+      CALL G3LINK(5,3,-1,IDATA,RDATA)
+      CALL POSITN(XP,YP)
+      CALL JOIN(XQ,YQ)
+      CALL JOIN(XR,YR)
+      IF (NSIDES.GT.3) CALL JOIN(XS,YS)
+      IF (NSIDES.GT.4) CALL JOIN(XT,YT)
+C
+      CALL JOIN(XP,YP)
+      CALL G3LINK(5,4,0,IDATA,RDATA)
+C
+      RETURN
+      END

@@ -1,0 +1,37 @@
+      SUBROUTINE G0SFLP(XSTORE,YSTORE,INDSTR,LEVNUM)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. ( 361)   VERSION (A9.1)    05:MAY:92
+C          ------------------------------------------------
+C
+C          THIS ROUTINE FILLS A POLYGON WITH A COLOUR.
+C
+      REAL    XSTORE(*),YSTORE(*),RDATA(1)
+      INTEGER IDATA(1)
+C
+      COMMON /T0KLST/ LSTCL0(100),LENLST
+C
+C
+      KOL= MOD(LEVNUM,LENLST)
+      IF (KOL.EQ.0) KOL= LENLST
+C
+      KOLLOR= LSTCL0(KOL)
+      IF (KOLLOR.EQ.0) RETURN
+C
+      IDATA(1)= 0
+      IF (KOLLOR.LT.0) IDATA(1)= 1
+C
+      CALL G3LINK(5,13,-1,IDATA,RDATA)
+      IDATA(1)= IABS(KOLLOR)
+      CALL G3LINK(5,3,-1,IDATA,RDATA)
+      CALL POSITN(XSTORE(1),YSTORE(1))
+C
+      DO 100 IND= 2,INDSTR
+        CALL JOIN(XSTORE(IND),YSTORE(IND))
+  100 CONTINUE
+C
+      CALL JOIN(XSTORE(1),YSTORE(1))
+      CALL G3LINK(5,4,0,IDATA,RDATA)
+C
+      RETURN
+      END

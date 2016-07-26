@@ -1,0 +1,68 @@
+dnl Process this file with autoconf to produce a configure script.
+AC_INIT(src/lib/paper.f)
+AM_INIT_AUTOMAKE(GHOST, 1.0.0)
+AC_CANONICAL_HOST
+
+dnl set default prefixes
+test "$prefix" = NONE && prefix=/opt/culham
+test "$exec_prefix" = NONE && exec_prefix=$prefix
+AC_DEFINE_UNQUOTED(GHOST_PREFIX,"${prefix}")
+AC_DEFINE_UNQUOTED(GHOST_EXEC_PREFIX,"${exec_prefix}")
+
+dnl set default compilers and mandatory options
+case "$host" in 
+  sparc-sun-solaris*)
+    : ${CC=cc}
+    : ${CXX=CC}
+    : ${F77=f77}
+    AC_DEFINE(USEUNDERSCORE)
+    AC_DEFINE(GHOST_RECL_UNIT,4)
+    ;;
+  i686-pc-linux-*)
+    AC_DEFINE(USEUNDERSCORE)
+    AC_DEFINE(LITTLE_ENDIAN)
+    AC_DEFINE(GHOST_RECL_UNIT,4)
+    ;;
+  i386-pc-solaris*)
+    AC_DEFINE(USEUNDERSCORE)
+    AC_DEFINE(LITTLE_ENDIAN)
+    AC_DEFINE(GHOST_RECL_UNIT,4)
+    ;;
+  mips-sgi-irix*)
+    : ${CC=cc}
+    : ${F77=f77}
+    AC_DEFINE(USEUNDERSCORE) 
+    AC_DEFINE(GHOST_RECL_UNIT,1)
+    ;;	
+  *-hp-hpux*)
+    : ${CC=c89}
+    : ${F77=fort77}
+    AC_DEFINE(GHOST_RECL_UNIT,4)
+    : ${FFLAGS="+U77 -O"}
+    ;;
+  *)
+    AC_DEFINE(USEUNDERSCORE)
+    AC_DEFINE(LITTLE_ENDIAN)
+    AC_DEFINE(GHOST_RECL_UNIT,4)
+   ;;
+esac
+
+dnl set default compiler options 
+: ${CFLAGS="-O"}
+: ${CXXFLAGS="-O"}
+: ${FFLAGS="-O"}
+
+dnl Checks for programs.
+AC_PROG_CC
+AC_PROG_F77
+AC_PROG_RANLIB
+AM_DISABLE_STATIC
+AM_PROG_LIBTOOL
+
+dnl Checks for header files.
+AC_PATH_XTRA
+AC_HEADER_STDC
+
+AC_OUTPUT([Makefile src/Makefile src/lib/Makefile src/libexec/Makefile 
+           src/bin/Makefile src/hershey/Makefile])
+

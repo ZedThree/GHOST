@@ -1,0 +1,35 @@
+      SUBROUTINE GREND
+C
+C          ------------------------------------------------
+C          ROUTINE NO. (   4)   VERSION (A8.6)    28:JAN:87
+C          ------------------------------------------------
+C
+C          THIS TERMINATES CURRENT GRAPHICAL OUTPUT.
+C
+C
+      REAL      RDATA(1)
+      INTEGER   IDATA(1)
+C
+      COMMON /T0MAPP/ X1MAP0,X2MAP0,Y1MAP0,Y2MAP0
+      COMMON /T0PPOS/ XPLOT0,YPLOT0
+      COMMON /T0TRAC/ IPRINT
+      COMMON /T2INLO/ LNFOFO,LNFOPO
+      COMMON /T2OPNL/ LNFILN,LNPICN
+C
+      DATA RDATA /0.0/, IDATA /0/
+C
+C
+      IF (IPRINT.EQ.1) CALL G0MESG(3,0)
+C
+C          THE OUTPUT STREAMS ARE CLOSED, THE PICTURE
+C          NAME AND PICTURE INFORMATION ARE CLEARED,
+C          AND THE CURRENT PLOTTING POSITION IS RESET.
+C
+      CALL G3LINK(1,2,0,IDATA,RDATA)
+      LNPICN= 0
+      LNFOPO= 0
+      XPLOT0= X1MAP0
+      YPLOT0= Y1MAP0
+C
+      RETURN
+      END

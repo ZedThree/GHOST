@@ -1,0 +1,40 @@
+      SUBROUTINE PICINF(INFPIC)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. ( 308)   VERSION (A7.6)    11:FEB:85
+C                         === FORTRAN-77 ===
+C          ------------------------------------------------
+C
+C          THIS STORES INFORMATION IN A NEW PICTURE.
+C
+C
+      LOGICAL   BLANK
+      CHARACTER INFPIC*(*)
+C
+      COMMON /T2INFO/ INFOFO(32),INFOPO(32)
+      COMMON /T2INLO/ LNFOFO,LNFOPO
+      COMMON /T3MACH/ NMCHI,NBITMC
+      COMMON /T3SPAC/ ISPACE(1)
+C
+C
+      CALL G3INIT(2)
+C
+      LNFOPO= LEN(INFPIC)
+      IF (LNFOPO.GT.128) LNFOPO= 128
+C
+      LIMIT= NMCHI*32
+      BLANK= .TRUE.
+      ISPAC= 0
+      CALL G4GETK(ISPACE,NMCHI,NBITMC,NMCHI,ISPAC)
+C
+      DO 100 ISET= 1,LIMIT
+        NCHAR= ISPAC
+        IF (ISET.LE.LNFOPO) NCHAR= ICHAR(INFPIC(ISET:ISET))
+        IF (NCHAR.NE.ISPAC) BLANK= .FALSE.
+        CALL G4PUTK(INFOPO,ISET,NBITMC,NMCHI,NCHAR)
+  100 CONTINUE
+C
+      IF (BLANK) LNFOPO= 0
+C
+      RETURN
+      END

@@ -1,0 +1,33 @@
+      SUBROUTINE SURSKL(HUE,NCOLS,KOLSTR)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. ( 351)   VERSION (A9.1)    05:MAY:92
+C          ------------------------------------------------
+C
+C          THIS SPECIFIES THE HUE, NUMBER OF COLOURS AND
+C          START COLOUR FOR SHADED SURFACES.
+C
+C
+C          THE ARGUMENTS ARE AS FOLLOWS:
+C
+C          <HUE   >  THE HUE  OF THE SHADED SURFACE.
+C          <NCOLS >  THE NUMBER OF COLOURS TO BE USED.
+C          <KOLSTR>  THE START NUMBER IN THE COLOUR TABLE.
+C
+C
+      COMMON /T0SKOL/ HUESHD,JKOLS,KOLSTA
+      COMMON /T0TRAC/ IPRINT
+      COMMON /T0TRAI/ ITRAC1,ITRAC2,ITRAC3,ITRAC4
+C
+C
+      CALL G3INIT(2)
+C
+      ITRAC1= NCOLS
+      ITRAC2= KOLSTR
+      IF (IPRINT.EQ.1) CALL G0MESG(199,6)
+C
+      HUESHD= HUE
+      JKOLS= NCOLS-1
+      KOLSTA= KOLSTR
+      RETURN
+      END

@@ -1,0 +1,365 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "decode"=.\decode\decode.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name libghost
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libgriddecode
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "demosurf"=.\demosurf\demosurf.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name libghost
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libxghost
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "hershey"=.\hershey\hershey.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "hpgl2"=.\hpgl2\hpgl2.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name libghost
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libgridhpgl2
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "libdecode"=.\libdecode\libdecode.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "libghost"=.\libghost\libghost.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "libgrid"=.\libgrid\libgrid.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "libgriddecode"=.\libgriddecode\libgriddecode.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "libgridhpgl2"=.\libgridhpgl2\libgridhpgl2.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "libgridpostcl"=.\libgridpostcl\libgridpostcl.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "libgridpostsc"=.\libgridpostsc\libgridpostsc.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "libgridtrenc"=.\libgridtrenc\libgridtrenc.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "libgridxghost"=.\libgridxghost\libgridxghost.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "libhpgl2"=.\libhpgl2\libhpgl2.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "libpostcl"=.\libpostcl\libpostcl.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "libpostsc"=.\libpostsc\libpostsc.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "libtrand"=.\libtrand\libtrand.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "libtrenc"=.\libtrenc\libtrenc.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "libxghost"=.\libxghost\libxghost.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "postcl"=.\postcl\postcl.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name libgridpostcl
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libghost
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "postsc"=.\postsc\postsc.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name libghost
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libgridpostsc
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "trand"=.\trand\trand.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name libgrid
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libtrand
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "trenc"=.\trenc\trenc.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name libghost
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libgridtrenc
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "xgeniex"=.\xgeniex\xgeniex.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "xghost"=.\xghost\xghost.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name libghost
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libgridxghost
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

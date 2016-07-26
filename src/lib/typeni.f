@@ -1,0 +1,31 @@
+      SUBROUTINE TYPENI(IVALUE)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. ( 166)   VERSION (A7.4)    11:FEB:85
+C          ------------------------------------------------
+C
+C          THIS DRAWS OUT THE GIVEN NUMBER <IVALUE> IN INTEGER FORMAT.
+C
+C
+      REAL    RDATA(1)
+      INTEGER IDATA(20)
+C
+      DATA ISPACE /32/, MINUS /45/, RDATA /0.0/
+C
+C
+C          THE FIRST CHARACTER IS SET TO ISPACE OR MINUS,
+C          DEPENDING ON THE SIGN OF THE NUMBER. THE
+C          ABSOLUTE VALUE IS THEN CONVERTED BY <G0CONI>
+C          AND PLACED INTO <IDATA> IN UNPACKED FORM.
+C
+      IDATA(1)= ISPACE
+      IF (IVALUE.LT.0) IDATA(1)= MINUS
+      INDEX= 2
+C
+      CALL G0CONI(IVALUE,IDATA,INDEX)
+      NCHARS= INDEX-1
+C
+      CALL G3LINK(2,11,-NCHARS,IDATA,RDATA)
+C
+      RETURN
+      END

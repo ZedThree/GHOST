@@ -1,0 +1,46 @@
+      PROGRAM TRNDCALA
+C
+C          ------------------------------------------------
+C          ROUTINE NO. (5005)   VERSION (A8.1A)   29:SEP:92
+C          ------------------------------------------------
+C
+C          THIS VERSION IS FOR UNIX SYSTEMS
+C
+      LOGICAL   TEROUT
+      CHARACTER NAMFIL*128
+C
+      COMMON /T1TRAL/ LENTRA
+      COMMON /T1TRAN/ NAMTRA(32)
+      COMMON /T3CHAM/ KMESGI,KMESGO
+      COMMON /T3MACH/ NMCHI,NBITMC
+      COMMON /T5TERR/ INERR,TEROUT
+      COMMON /T5TINP/ KTRNMI,KTRNDI,INPBUF(26),INBUFP,INLINE
+C
+C
+      CALL G3INIT(1)
+      NARGS= IARGC()
+      IF (NARGS.EQ.0) THEN
+C
+        DO 100 ILOAD= 1,LENTRA
+          CALL G4GETK(NAMTRA,ILOAD,NBITMC,NMCHI,ICH)
+          NAMFIL(ILOAD:ILOAD)= CHAR(ICH)
+  100   CONTINUE
+C
+        LENGTH= LENTRA
+      ELSE
+        CALL GETARG(1,NAMFIL)
+        LENGTH= LENSTR(NAMFIL)
+      ENDIF
+C
+      TEROUT= .TRUE.
+      KTRNMI= 0
+      KTRNDI= 19
+      OPEN(KTRNDI,FILE=NAMFIL(1:LENGTH),STATUS='OLD',ERR=901)
+      CALL TRAND(1)
+      CLOSE(KTRNDI)
+      STOP
+C
+  901 WRITE(KMESGO,201) NAMFIL(1:LENSTR(NAMFIL))
+  201 FORMAT(1X,'*** TRAND ERROR ',A,' File not found ***')
+      STOP
+      END

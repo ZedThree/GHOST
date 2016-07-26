@@ -1,0 +1,52 @@
+      SUBROUTINE HATPHS(IPHASE,IENABL)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. ( 335)   VERSION (A8.1)    09:JUL:87
+C          ------------------------------------------------
+C
+C          THIS SETS THE PHASE FOR CROSS-HATCHING.
+C
+C
+C          THE ARGUMENTS ARE AS FOLLOWS:
+C
+C          <IPHASE>, THE PHASE TO BE SET,
+C          <IENABL>, CONTROLS WHICH PARAMETERS ARE SET:
+C                =1, TO APPLY TO THE FIRST SET OF LINES,
+C                =2, TO APPLY TO THE SECOND SET OF LINES,
+C                =3, TO APPLY TO BOTH SETS OF LINES.
+C
+C
+      REAL    RDATA(1)
+      INTEGER IDATA(2)
+C
+      COMMON /T0HFLG/ NHFLG0(255)
+      COMMON /T0HNUM/ IHATN0
+      COMMON /T0HPHS/ IPHAS0(255,2)
+      COMMON /T0TRAC/ IPRINT
+      COMMON /T0TRAI/ ITRAC1,ITRAC2,ITRAC3,ITRAC4
+C
+      DATA RDATA /0.0/
+C
+C
+      CALL G3INIT(2)
+      ITRAC1= IPHASE
+      IF (IPRINT.EQ.1) CALL G0MESG(182,5)
+      IF (IENABL.EQ.0) RETURN
+C
+      IPHAS= IPHASE
+      IF (IPHAS.GT.255) IPHAS= 255
+      IF (IPHAS.LT.0) RETURN
+C
+      IENAB= IENABL
+      IF (IENAB.LT.1.OR.IENAB.GT.3) IENAB= 3
+      IF (MOD(IENAB,2).EQ.1) IPHAS0(IHATN0,1)= IPHAS
+      IF (IENAB/2.EQ.1)      IPHAS0(IHATN0,2)= IPHAS
+C
+      NHFLG0(IHATN0)= 1
+C
+      IDATA(1)= IPHAS
+      IDATA(2)= IENAB
+      CALL G3LINK(5,9,-2,IDATA,RDATA)
+C
+      RETURN
+      END

@@ -1,0 +1,53 @@
+      SUBROUTINE BROKEN(MARKA,MISSA,MARKB,MISSB)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. (  51)   VERSION (A7.4)    11:FEB:85
+C          ------------------------------------------------
+C
+C          THIS SETS THE BROKEN LINE PATTERN.
+C
+C
+C          THE ARGUMENTS ARE AS FOLLOWS:
+C
+C          <MARKA>  IS THE 1ST. LINE LENGTH,
+C          <MISSA>  IS THE 1ST. SPACE LENGTH,
+C          <MARKB>  IS THE 2ND. LINE LENGTH,
+C          <MISSB>  IS THE 2ND. SPACE LENGTH
+C                   (ALL IN UNITS OF 1/1000 OF THE UNIT SQUARE).
+C
+C
+      REAL    RDATA(1)
+      INTEGER IDATA(4)
+C
+      COMMON /T0LPAT/ MARKA0,MISSA0,MARKB0,MISSB0
+      COMMON /T0TRAC/ IPRINT
+      COMMON /T0TRAI/ ITRAC1,ITRAC2,ITRAC3,ITRAC4
+C
+      DATA RDATA /0.0/
+C
+C
+      CALL G3INIT(2)
+C
+      ITRAC1= MARKA
+      ITRAC2= MISSA
+      ITRAC3= MARKB
+      ITRAC4= MISSB
+      IF (IPRINT.EQ.1) CALL G0MESG(22,8)
+C
+      MARKA0= IABS(MARKA)
+      IF (MARKA0.GT.255) MARKA0= 255
+      MISSA0= IABS(MISSA)
+      IF (MISSA0.GT.255) MISSA0= 255
+      MARKB0= IABS(MARKB)
+      IF (MARKB0.GT.255) MARKB0= 255
+      MISSB0= IABS(MISSB)
+      IF (MISSB0.GT.255) MISSB0= 255
+C
+      IDATA(1)= MARKA0
+      IDATA(2)= MISSA0
+      IDATA(3)= MARKB0
+      IDATA(4)= MISSB0
+      CALL G3LINK(3,6,-4,IDATA,RDATA)
+C
+      RETURN
+      END

@@ -1,0 +1,30 @@
+      SUBROUTINE BR3ANG(ANGLE)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. (  43)   VERSION (A8.1)    30:SEP:86
+C          ------------------------------------------------
+C
+C          THIS SPECIFIES THE VIEW ANGLE FOR THE ROUTINE BAR3D
+C
+C          THE PARAMETER IS :
+C
+C          <ANGLE> IS THE ANGLE THE BARS MAKE WITH THE BASELINE.
+C
+C
+      COMMON /T0ACON/ ANGCON
+      COMMON /T0BANG/ B3ANG
+      COMMON /T0TRAC/ IPRINT
+      COMMON /T0TRAR/ RTRAC1,RTRAC2,RTRAC3,RTRAC4
+      COMMON /T3CONS/ PI
+C
+C
+      CALL G3INIT(2)
+      RTRAC1= ANGLE
+      IF (IPRINT.EQ.1) CALL G0MESG(173,1)
+C
+      B3ANG= ANGLE*ANGCON
+      IF (B3ANG.GT.PI/2.4) B3ANG= PI/2.4
+      IF (B3ANG.LE.PI/12.0) B3ANG= PI/12.0
+C
+      RETURN
+      END

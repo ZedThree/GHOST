@@ -1,0 +1,44 @@
+      SUBROUTINE HATYPE(ITYPE)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. ( 337)   VERSION (A8.1)    12:OCT:95
+C          ------------------------------------------------
+C
+C          THIS CONTROLS THE TYPE OF CROSS-HATCHING.
+C
+C
+C          THE ARGUMENTS ARE AS FOLLOWS:
+C
+C          <ITYPE>, CONTROLS WHICH SET OF PARAMETERS ARE USED:
+C                =1, USE THE FIRST SET OF PARAMETERS,
+C                =2, USE THE SECOND SET OF PARAMETERS,
+C                =3, USE BOTH SETS OF PARAMETERS.
+C
+C
+      REAL    RDATA(1)
+      INTEGER IDATA(1)
+C
+      COMMON /T0HFLG/ NHFLG0(255)
+      COMMON /T0HNUM/ IHATN0
+      COMMON /T0HTYP/ IHAT0(255)
+      COMMON /T0TRAC/ IPRINT
+      COMMON /T0TRAI/ ITRAC1,ITRAC2,ITRAC3,ITRAC4
+C
+      DATA RDATA /0.0/
+C
+C
+      CALL G3INIT(2)
+      ITRAC1= ITYPE
+      IF (IPRINT.EQ.1) CALL G0MESG(184,5)
+C
+      IHAT= ITYPE
+      IF (IHAT.LT.1.OR.IHAT.GT.3) IHAT= 3
+C
+      IHAT0(IHATN0)= IHAT
+      NHFLG0(IHATN0)= 1
+C
+      IDATA(1)= IHAT
+      CALL G3LINK(5,11,-1,IDATA,RDATA)
+C
+      RETURN
+      END

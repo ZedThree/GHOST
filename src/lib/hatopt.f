@@ -1,0 +1,37 @@
+      SUBROUTINE HATOPT(ISHADE)
+C
+C          --------------------------------------------------
+C          ROUTINE NO. ( 340)    VERSION (A8.1)     03:JUL:87
+C          --------------------------------------------------
+C
+C          THIS SPECIFIES WHETHER SOLID FILLING SHOULD BE
+C          IMPLEMENTED BY SHADING ON DEVICES THAN CANNOT
+C          DO SOLID FILLING.
+C
+C
+C          <ISHADE> = 0 TO NOT REPLACE SOLID FILLING BY SHADING.
+C                   = 1 TO REPLACE SOLID FILLING BY SHADING.
+C
+C
+      REAL    RDATA(1)
+      INTEGER IDATA(1)
+C
+      COMMON /T0FLTY/ IFLTY0,IFLRP0
+      COMMON /T0TRAC/ IPRINT
+      COMMON /T0TRAI/ ITRAC1,ITRAC2,ITRAC3,ITRAC4
+C
+      DATA RDATA /0.0/
+C
+C
+      CALL G3INIT(2)
+      ITRAC1= ISHADE
+      IF (IPRINT.EQ.1) CALL G0MESG(188,5)
+C
+      IFLRP0= ISHADE
+      IF (IFLRP0.NE.0) IFLRP0= 1
+C
+      IDATA(1)= IFLRP0
+      CALL G3LINK(5,16,-1,IDATA,RDATA)
+C
+      RETURN
+      END

@@ -1,0 +1,35 @@
+      SUBROUTINE G1BUFF(IDATA,NCHRS)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. (1010)   VERSION (A8.1A)   21:JUN:88
+C          ------------------------------------------------
+C
+C          THIS BUFFERS UP THE DATA.
+C          (THIS IS THE STANDARD VERSION).
+C
+C
+C          THE ARGUMENTS ARE AS FOLLOWS:
+C
+C          <IDATA>  IS THE CHARACTER I/O STRING.
+C          <NCHRS>  IS THE NUMBER OF CHARS. IN THE STRING.
+C
+C
+      INTEGER IDATA(NCHRS)
+C
+      COMMON /T1IOBF/ ICODEB(512),ISIZEB,INDXB,INITXB
+C
+C
+      IF (NCHRS.LE.0) RETURN
+      IF (INDXB+NCHRS-1.LE.ISIZEB) GO TO 1
+      CALL G1DVIO(3,ICODEB,INDXB-1)
+      INDXB= INITXB
+C
+C          THIS SECTION DOES OUTPUT BUFFERING.
+C
+    1 DO 100 IFILL= 1,NCHRS
+        ICODEB(INDXB)= IDATA(IFILL)
+        INDXB= INDXB+1
+  100 CONTINUE
+C
+      RETURN
+      END

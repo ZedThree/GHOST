@@ -1,0 +1,34 @@
+      SUBROUTINE THICK(NLINES)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. (  55)   VERSION (A7.4)    11:FEB:85
+C          ------------------------------------------------
+C
+C          THIS SETS THE SUBSEQUENT LINE THICKNESS.
+C
+C          THE THICKNESS IS IN BASIC LINE WIDTHS; THERE
+C          ARE <NLINES>-1 ON EITHER SIDE OF THE CENTRAL LINE.
+C
+C
+      REAL    RDATA(1)
+      INTEGER IDATA(1)
+C
+      COMMON /T0LATT/ KOLIN0,ITHIK0
+      COMMON /T0TRAC/ IPRINT
+      COMMON /T0TRAI/ ITRAC1,ITRAC2,ITRAC3,ITRAC4
+C
+      DATA RDATA /0.0/
+C
+C
+      CALL G3INIT(2)
+C
+      ITRAC1= NLINES
+      IF (IPRINT.EQ.1) CALL G0MESG(25,5)
+C
+      ITHIK0= IABS(NLINES)
+      IF (ITHIK0.GT.255) ITHIK0= 255
+      IDATA(1)= ITHIK0
+      CALL G3LINK(3,4,-1,IDATA,RDATA)
+C
+      RETURN
+      END

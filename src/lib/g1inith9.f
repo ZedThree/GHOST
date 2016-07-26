@@ -1,0 +1,135 @@
+      SUBROUTINE G1INIT(ITYPE)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. (1001)   VERSION (A8.1H9)  22:JUN:93
+C          ------------------------------------------------
+C
+C          THIS INITIALISES DEVICE-DEPENDENT VARIABLES.
+C          (THIS VERSION IS FOR HP-GL/2).
+C          (THIS IS FOR A SPOOLED OR OFFLINE PLOTTER).
+C
+C     ******************************************************************
+C     *                                                                *
+C     *    NOTE: ALL GHOST DEVICE-DEPENDENT COMMON BLOCKS ARE          *
+C     *          SPECIFIED HERE. TO ENSURE THEIR INTEGRITY IT IS       *
+C     *          ESSENTIAL THAT THIS ROUTINE CANNOT BE SWAPPED-OUT.    *
+C     *                                                                *
+C     ******************************************************************
+C
+C
+C          <ITYPE> CONTROLS THE ACTION AS FOLLOWS:
+C
+C          =  1, INITIALISATION IS DONE UNCONDITIONALLY.
+C          =  2, INITIALISATION IS DONE ONLY IF NOT ALREADY DONE.
+C
+C
+      LOGICAL DONE
+      LOGICAL DOWN
+C
+      COMMON /T1H1AA/ IXPLOT,IYPLOT,IXMSAV,IYMSAV,NCMND,DOWN
+      COMMON /T1H9BB/ IHIGHT,ZOBLAT,CHRANG,ISLANT,KOLOUR,KOLNUM,
+     &                INTRED,IXCHDS,IYCHDS,IXCHMV,IYCHMV
+      COMMON /T1HCOL/ IHCOL1(255,2)
+      COMMON /T1HRDM/ MAPCHR(256)
+      COMMON /T1IOBF/ ICODEB(512),ISIZEB,INDXB,INITXB
+      COMMON /T1KDEF/ KOLLID,KOLBAD,MAXCLS
+      COMMON /T1LINT/ ELWID,NFILLI,THIKST
+C
+      SAVE DONE
+C
+      DATA DONE /.FALSE./
+C
+C
+      IF (ITYPE.LT.1.OR.ITYPE.GT.2) RETURN
+      IF (DONE.AND.ITYPE.EQ.2)      RETURN
+C
+C          THIS PART INITIALISES THE DEVICE COMMON BLOCKS:
+C
+      IF (.NOT.DONE) IXPLOT= 0
+      IF (.NOT.DONE) IYPLOT= 0
+C
+      IXMSAV= 0
+      IYMSAV= 0
+      NCMND= 1
+      DOWN= .FALSE.
+      ZOBLAT= 1.0
+      CHRANG= 0.0
+      ISLANT= 0
+C
+C          [MAPCHR] GIVES THE SOFTWARE:HARDWARE CHAR. MAPPINGS:
+C
+      DO 100 ISETCO= 1,256
+        IF (ISETCO.GT.33) GO TO 1
+C
+        MAPCHR(ISETCO)= 32
+        GO TO 100
+C
+    1   IF (ISETCO.GT.127) GO TO 2
+C
+        MAPCHR(ISETCO)= ISETCO-1
+        GO TO 100
+C
+    2   IF (ISETCO.NE.128) GO TO 3
+C
+        MAPCHR(ISETCO)= 32
+        GO TO 100
+C
+    3   IF (ISETCO.GT.224) GO TO 4
+C
+        MAPCHR(ISETCO)= 35
+        GO TO 100
+C
+    4   MAPCHR(ISETCO)= 42
+  100 CONTINUE
+C
+      MAPCHR(143)=  34
+      MAPCHR(161)=  43
+      MAPCHR(162)=  42
+      MAPCHR(165)=  61
+      MAPCHR(168)=  60
+      MAPCHR(173)=  46
+      MAPCHR(176)=  39
+      MAPCHR(177)=  45
+      MAPCHR(179)=  47
+      MAPCHR(184)=  62
+      MAPCHR(206)=  40
+      MAPCHR(207)=  91
+      MAPCHR(208)= 123
+      MAPCHR(222)=  41
+      MAPCHR(223)=  93
+      MAPCHR(224)= 125
+      MAPCHR(233)=  43
+      MAPCHR(247)=  43
+C
+C          THE OUTPUT BUFFER SIZE AND POINTER ARE SET. (THE
+C          DECLARED SIZE OF [ICODEB] SHOULD BE LARGE ENOUGH):
+C
+      ISIZEB= 240
+      INDXB= 1
+      INITXB= 3
+C
+C          THE DEVICE DEFAULT LINE COLOUR IS BLACK AND
+C          THE DEFAULT BACKGROUND COLOUR IS WHITE:
+C
+      KOLLID= 1
+      KOLBAD= 5
+      MAXCLS= 255
+      KOLOUR= KOLLID
+C
+      DO 200 ISETCO= 1,255
+        IHCOL1(ISETCO,1)= KOLLID
+        IHCOL1(ISETCO,2)= KOLLID
+  200 CONTINUE
+C
+C          THE DEVICE LINE WIDTH IS IN UNITS OF 0.001 IN ND-SPACE:
+C
+      ELWID= 0.2
+      NFILLI= 1
+      THIKST= 0.0005
+C
+C          <G1HRDW> PERFORMS DEVICE INITIALISATION.
+C
+      CALL G1HRDW(0)
+      DONE= .TRUE.
+      RETURN
+      END

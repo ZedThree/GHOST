@@ -1,0 +1,39 @@
+      SUBROUTINE TYPECS(PHRASE)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. ( 159)   VERSION (A7.5B)   11:FEB:85
+C                         === FORTRAN-77 ===
+C          ------------------------------------------------
+C
+C          THIS DRAWS THE CHARACTER STRING <PHRASE> WITH THE
+C          LEFTMOST CHARACTER PLACED AT THE CURRENT CHAR. POSITION.
+C
+C          THIS VERSION IS SUITABLE ONLY FOR ASCII CHAR. CODING.
+C
+C
+      REAL      RDATA(1)
+      INTEGER   IDATA(255)
+      LOGICAL   ERRON
+      CHARACTER PHRASE*(*)
+C
+      COMMON /T3ERRS/ ERRON,NUMERR
+C
+      DATA RDATA /0.0/
+C
+C
+      NCHARS= LEN(PHRASE)
+      IF (NCHARS.GT.255) GO TO 901
+C
+    1 DO 100 KCHAR= 1,NCHARS
+        IDATA(KCHAR)= ICHAR(PHRASE(KCHAR:KCHAR))
+  100 CONTINUE
+C
+      CALL G3LINK(2,11,-NCHARS,IDATA,RDATA)
+      RETURN
+C
+  901 NUMERR= 18
+      IF (ERRON) CALL G0ERMS
+      NCHARS= 255
+      GO TO 1
+C
+      END

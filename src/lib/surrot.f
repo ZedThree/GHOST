@@ -1,0 +1,30 @@
+      SUBROUTINE SURROT(ANGLE)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. ( 349)   VERSION (A9.1)    05:MAY:92
+C          ------------------------------------------------
+C
+C          THIS SPECIFIES THE AZIMUTH ANGLE OF VIEW
+C          FOR THE SURFACE DRAWING ROUTINES.
+C
+C
+C          THE ARGUMENTS ARE AS FOLLOWS:
+C
+C          <ANGLE>  THE AZIMUTH VIEW ANGLE IN UNITS
+C                   OF THE CURRENTLY-SET ANGLE TYPE.
+C
+C
+      COMMON /T0ACON/ ANGCON
+      COMMON /T0SAZA/ AZIANG
+      COMMON /T0TRAC/ IPRINT
+      COMMON /T0TRAR/ RTRAC1,RTRAC2,RTRAC3,RTRAC4
+C
+C
+      CALL G3INIT(2)
+C
+      RTRAC1= ANGLE
+      IF (IPRINT.EQ.1) CALL G0MESG(197,1)
+C
+      AZIANG= ANGLE*ANGCON
+      RETURN
+      END

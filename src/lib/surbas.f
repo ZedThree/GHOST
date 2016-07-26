@@ -1,0 +1,48 @@
+      SUBROUTINE SURBAS(IUNDR,IBASE,HTBASE)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. ( 133)   VERSION (A7.1)    11:FEB:85
+C          ------------------------------------------------
+C
+C          THIS SETS DETAILS OF THE BASE OF THE FIGURE
+C          DRAWN BY THE ROUTINE <SURPLT>.
+C
+C
+C          THE ARGUMENTS ARE AS FOLLOWS:
+C
+C          <IUNDR>  IF SET TO ZERO, AN UNDERSIDE IS NOT DRAWN.
+C          <IBASE>  MAY BE SET TO 0, 1, OR 2.
+C                   = 0  NO BASE.
+C                   = 1  DRAW BASE AT HEIGHT SHMIN.
+C                   = 2  DRAW BASE AT HEIGHT MIN(HTBASE,SHMIN).
+C                        (THIS IS THE ONLY CASE IN WHICH HTBASE IS USED.)
+C          <HTBASE>  USED WHEN IBASE= 2 AS DESCRIBED ABOVE.
+C
+C
+      LOGICAL ERRON
+C
+      COMMON /T0SBAS/ IUNDRS,INDBAS,BASEHT
+      COMMON /T0TRAC/ IPRINT
+      COMMON /T0TRAI/ ITRAC1,ITRAC2,ITRAC3,ITRAC4
+      COMMON /T3ERRS/ ERRON,NUMERR
+C
+C
+      CALL G3INIT(2)
+C
+      ITRAC1= IUNDR
+      ITRAC2= IBASE
+      IF (IPRINT.EQ.1) CALL G0MESG(148,6)
+C
+      IUNDRS= 0
+      IF (IUNDR.NE.0) IUNDRS= 1
+C
+      IF (IBASE.LT.0.OR.IBASE.GT.2) GO TO 901
+C
+      INDBAS= IBASE
+      IF (IBASE.EQ.2) BASEHT= HTBASE
+      RETURN
+C
+  901 NUMERR= 38
+      IF (ERRON) CALL G0ERMS
+      RETURN
+      END

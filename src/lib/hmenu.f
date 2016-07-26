@@ -1,0 +1,47 @@
+      SUBROUTINE HMENU(XFIRST,XLAST,YFIRST,YLAST,LABELS,
+     &                NLABLS,IDRAW,ISELEC)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. ( 324)   VERSION (A8.1)    11:AUG:86
+C                         === FORTRAN-77 ===
+C          ------------------------------------------------
+C
+C          THIS DRAWS A HORIZONTAL MENU AND RETURNS A CHOSEN ITEM.
+C
+C          THE ARGUMENTS ARE AS FOLLOWS:
+C
+C          <XFIRST,YFIRST> IS THE START CORNER, AND
+C          <XLAST,YLAST>   IS THE FINISH CORNER OF THE MENU AREA.
+C          [LABELS]   CONTAINS THE LABELS TO BE WRITTEN
+C                     IN THE MENU BOXES.
+C          <NLABLS>   IS THE NUMBER OF LABELS.
+C          <IDRAW>    WHEN SET TO ZERO, THE MENU IS NOT DRAWN.
+C          <ISELEC>   IS THE NUMBER OF THE CHOSEN MENU ITEM.
+C
+C
+      CHARACTER LABELS(NLABLS)*(*)
+C
+      COMMON /T0TRAC/ IPRINT
+C
+C
+      IF (IPRINT.EQ.1) CALL G0MESG(169,0)
+C
+      IPRSAV= IPRINT
+      IPRINT= 0
+      ISELEC= 0
+      IF (IDRAW.NE.0) CALL HCHTKY(XFIRST,XLAST,YFIRST,YLAST,LABELS,
+     &                            NLABLS)
+C
+    1 CALL CURSOR(XPOS,YPOS,ICHAR)
+      IF (ICHAR.EQ.33) RETURN
+      IF ((XPOS-XFIRST)*(XPOS-XLAST).GT.0.0) GO TO 1
+C
+      XINT= (XLAST-XFIRST)/NLABLS
+      SELEC= (XPOS+XINT-XFIRST)/XINT
+      REM= AMOD(SELEC,1.0)
+      IF (REM.LT.0.05.OR.REM.GT.0.95) GO TO 1
+C
+      ISELEC= SELEC
+      IPRINT= IPRSAV
+      RETURN
+      END

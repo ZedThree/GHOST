@@ -1,0 +1,42 @@
+      SUBROUTINE TPICT(MODE)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. (  42)   VERSION (A7.1)    11:FEB:85
+C          ------------------------------------------------
+C
+C          THIS SETS THE PICTURE SCOPE OF TRANSFORMATIONS.
+C
+C
+C          THE ARGUMENT IS AS FOLLOWS:
+C
+C          <MODE>   GIVES THE TRANSFORM RANGE, WHICH IS:
+C                   = 0, NEITHER CURRENT NOR RETRIEVED PICTURES,
+C                   = 1, CURRENT PICTURES ONLY,
+C                   = 2, RETRIEVED PICTURES ONLY,
+C                   = 3, BOTH CURRENT AND RETRIEVED PICTURES.
+C
+C
+      REAL    RDATA(1)
+      INTEGER IDATA(1)
+      LOGICAL SHIFT0
+C
+      COMMON /T0TRAC/ IPRINT
+      COMMON /T0TRST/ SHIFT0,MTRAN0,KLIPM0
+      COMMON /T0TRAI/ ITRAC1,ITRAC2,ITRAC3,ITRAC4
+C
+      DATA RDATA /0.0/
+C
+C
+      CALL G3INIT(2)
+C
+      ITRAC1= MODE
+      IF (IPRINT.EQ.1) CALL G0MESG(143,5)
+C
+      MTRAN0= MODE
+      IF (MTRAN0.LT.0) MTRAN0= 0
+      IF (MTRAN0.GT.3) MTRAN0= 3
+      IDATA(1)= MTRAN0
+      CALL G3LINK(7,17,-1,IDATA,RDATA)
+C
+      RETURN
+      END

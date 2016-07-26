@@ -1,0 +1,42 @@
+      SUBROUTINE FILEND
+C
+C          ------------------------------------------------
+C          ROUTINE NO. ( 303)   VERSION (A7.7)    11:FEB:85
+C          ------------------------------------------------
+C
+C          THIS SWITCHES GRID OUTPUT FROM THE CURRENT FILE
+C          BACK TO THE ORIGINAL DEFAULT OR SCRATCH GRIDFILE.
+C
+C
+      LOGICAL   SCRTCH,INTRAC
+C
+      COMMON /T2INLO/ LNFOFO,LNFOPO
+      COMMON /T2OPNA/ NAMEFO(32),NAMEPO(4)
+      COMMON /T2OPNL/ LNFILN,LNPICN
+      COMMON /T2SAVE/ SCRTCH
+      COMMON /T3DEVT/ INTRAC
+      COMMON /T3FILL/ LENDEF,LENSCR
+      COMMON /T3FILN/ NAMDEF(32),NAMSCR(32)
+C
+C
+      CALL G3INIT(2)
+C
+      CALL G0FRAM
+      IF (INTRAC) GO TO 1
+C
+      DO 100 ISET= 1,32
+        NAMEFO(ISET)= NAMDEF(ISET)
+  100 CONTINUE
+C
+      LNFILN= LENDEF
+      RETURN
+C
+    1 SCRTCH= .TRUE.
+      DO 200 ISET= 1,32
+        NAMEFO(ISET)= NAMSCR(ISET)
+  200 CONTINUE
+C
+      LNFILN= LENSCR
+      LNFOFO= 0
+      RETURN
+      END

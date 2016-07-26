@@ -1,0 +1,36 @@
+      SUBROUTINE BR3BAS(IBASE,HTBASE,HTMAX)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. (  48)   VERSION (A8.1)    03:NOV:86
+C          ------------------------------------------------
+C
+C          THIS SETS THE BASE HEIGHT FOR THE ROUTINE BAR3D
+C
+C          THE PARAMETERS ARE :
+C
+C          <IBASE>  IS A VALUE INDICATING AS FOLLOWS:
+C                   0 : BASE IS MINIMUM OF DATA SET
+C                   1 : BASE IS SPECIFIED AND ALL VALUES BELOW IT
+C                       ARE ROUNDED UP TO IT.
+C          <HTBASE> IS THE SPECIFIED BASELINE VALUE.
+C          <HTMAX>  IS THE MAXIMUM BAR VALUE.
+C
+C
+      COMMON /T0BBAS/ IBSTYP,BSORIG,BSMAX
+      COMMON /T0TRAC/ IPRINT
+      COMMON /T0TRAI/ ITRAC1,ITRAC2,ITRAC3,ITRAC4
+C
+C
+      CALL G3INIT(2)
+      ITRAC1= IBASE
+      IF (IPRINT.EQ.1) CALL G0MESG(174,5)
+C
+      IBSTYP= IBASE
+      IF (IBSTYP.NE.0) IBSTYP= 1
+      IF (IBSTYP.NE.1) RETURN
+C
+      BSORIG= HTBASE
+      BSMAX= HTMAX
+C
+      RETURN
+      END

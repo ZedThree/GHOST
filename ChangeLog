@@ -1,0 +1,53 @@
+2001-11-26    <nick.brealey@culham.com>
+
+	* allow spaces in filenames given as command line arguments 
+
+	* Change default file names: POSTSCPT.LIS -> default.ps,
+	CGMETAFL.LIS -> default.cgm, DECODED.TXT -> decoded.txt,
+	GRAPH.LIS -> graph.lis, TRANGRID.TGD -> trangrid.tgd,
+	DEFAULT.GRD -> default.grd, SCRATCH.GRD -> scratch.grd
+
+	* Added routines to interrogate the registry to find location
+	of xgenie and fonts on Windows
+
+	* Fixed problem where xghost used wrong interpretor on Windows
+
+	* Added icons for Windows
+
+	* Added extra configurations fot the DLL versions of the libraries 
+	and removed the separate projects.
+
+	* Changed version number from 1.0 to 1.0.0 for compatability with
+	Windows Installer
+
+2001-11-08  Nicholas Brealey  <nick.brealey@culham.com>
+
+	* Add fallback to Linux PC config if machine type not recognised.
+
+2001-11-05    <nick.brealey@culham.com>
+
+	* Improved Exceed XDK 7.00 building of XDK: no longer
+	need to call HCL init routines, used link input path and HCL
+	lib names instead of full paths
+
+2001-10-31    <nick.brealey@culham.com>
+
+	* Fixed some missing references to lenstr
+
+	* Updated to CVF 6.6 and Exceed XDK 7.0
+
+2001-08-17  Nicholas Brealey  <nick.brealey@culham.com>
+
+	* Added files for building a Solaris package.
+	See README.pkg.
+
+	* Added LENSTR function to find length of character 
+	string whic may contain embedded blanks. Previous approach
+	of finding first blank using INDEX() fails with embeded
+	blanks (common on Windows NT/2000). Could cause namespace
+	pollution.
+	* Port to Windows NT using MSVC++ 6.0, CVF 6.1, Freewrap
+	(optional) and Exceed XDK 6.2 (optional).
+	* Default install location changed from /usr/local
+	to /opt/culham on Unix or C:/Program Files/Culham on
+ 	Windows NT/2000.

@@ -1,0 +1,36 @@
+      SUBROUTINE LBCOLS(NCOLRS,LSTLEN)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. ( 107)   VERSION (A8.1)    12:MAR:86
+C          ------------------------------------------------
+C
+C          THIS DEFINES THE CURRENT LABELS COLOUR LIST.
+C
+C
+C          THE ARGUMENTS ARE AS FOLLOWS:
+C
+C          [NCOLRS] IS AN ARRAY OF COLOUR NUMBERS,
+C          <LSTLEN> IS THE SIZE OF THE ARRAY.
+C
+C
+      INTEGER NCOLRS(100)
+C
+      COMMON /T0KLAB/ LABCL0(100),LENLAB
+      COMMON /T0TRAC/ IPRINT
+C
+C
+      CALL G3INIT(2)
+C
+      IF (IPRINT.EQ.1) CALL G0MESG(164,0)
+C
+      LENLAB= LSTLEN
+      IF (LENLAB.LE.0)   RETURN
+      IF (LENLAB.GT.100) LENLAB= 100
+C
+      DO 100 ISAVE= 1,LENLAB
+        LABCL0(ISAVE)= NCOLRS(ISAVE)
+        IF (NCOLRS(ISAVE).LT.1.OR.NCOLRS(ISAVE).GT.255) LABCL0(ISAVE)= 0
+  100 CONTINUE
+C
+      RETURN
+      END

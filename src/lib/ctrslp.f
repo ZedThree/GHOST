@@ -1,0 +1,37 @@
+      SUBROUTINE CTRSLP(SLOP)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. ( 145)   VERSION (A7.5)    11:FEB:85
+C          ------------------------------------------------
+C
+C          THIS SETS THE CHARACTER LINE SLOPE.
+C
+C          <SLOP>   IS THE TANGENT OF THE ANGLE TO THE HORIZONTAL.
+C
+C
+      REAL    RDATA(1)
+      INTEGER IDATA(1)
+C
+      COMMON /T0CANG/ STANG0,CRANG0
+      COMMON /T0CSLO/ SLOPE,MRKSLP
+      COMMON /T0MAPP/ X1MAP0,X2MAP0,Y1MAP0,Y2MAP0
+      COMMON /T0TRAC/ IPRINT
+      COMMON /T0TRAR/ RTRAC1,RTRAC2,RTRAC3,RTRAC4
+      COMMON /T3NBYR/ NBYTR
+C
+      DATA IDATA /0/
+C
+C
+      CALL G3INIT(2)
+C
+      RTRAC1= SLOP
+      IF (IPRINT.EQ.1) CALL G0MESG(56,1)
+C
+      SLOPE= SLOP
+      STANG0= ATAN(SLOPE*(X2MAP0-X1MAP0)/(Y2MAP0-Y1MAP0))
+      RDATA(1)= STANG0
+      CALL G3LINK(2,4,NBYTR,IDATA,RDATA)
+      MRKSLP= 1
+C
+      RETURN
+      END

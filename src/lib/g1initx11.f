@@ -1,0 +1,154 @@
+      SUBROUTINE G1INIT(ITYPE)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. (1001)   VERSION (A8.1X11) 25:SEP:97
+C          ------------------------------------------------
+C
+C          THIS INITIALISES DEVICE-DEPENDENT VARIABLES.
+C          (THIS VERSION IS TO INTERFACE TO X WINDOWS VERSION 11).
+C
+C
+C     ******************************************************************
+C     *                                                                *
+C     *    NOTE: ALL GHOST DEVICE-DEPENDENT COMMON BLOCKS ARE          *
+C     *          SPECIFIED HERE. TO ENSURE THEIR INTEGRITY IT IS       *
+C     *          ESSENTIAL THAT THIS ROUTINE CANNOT BE SWAPPED-OUT.    *
+C     *                                                                *
+C     ******************************************************************
+C
+C
+C          <ITYPE> CONTROLS THE ACTION AS FOLLOWS:
+C
+C          =  1, INITIALISATION IS DONE UNCONDITIONALLY.
+C          =  2, INITIALISATION IS DONE ONLY IF NOT ALREADY DONE.
+C
+C
+      LOGICAL DONE,SCRTCH,INTRAC,UPDFRM
+C
+      COMMON /T1DLIM/ DLIMX,DLIMY
+      COMMON /T1HRDM/ MAPCHR(256)
+      COMMON /T1JOBF/ IPOLYX(1000),IPOLYY(1000),ISIZEB,INPOLY
+      COMMON /T1LINT/ ELWID,NFILLI,THIKST
+      COMMON /T1X11B/ KOLOUR,KOLNUM,IREDIN(1),UPDFRM
+      COMMON /T2OPNA/ NAMEFO(32),NAMEPO(4)
+      COMMON /T2OPNL/ LNFILN,LNPICN
+      COMMON /T2SAVE/ SCRTCH
+      COMMON /T3DEVT/ INTRAC
+      COMMON /T3FILL/ LENDEF,LENSCR
+      COMMON /T3FILN/ NAMDEF(32),NAMSCR(32)
+C
+      SAVE DONE
+C
+      DATA DONE /.FALSE./
+C
+C
+      IF (ITYPE.LT.1.OR.ITYPE.GT.2) RETURN
+      IF (DONE.AND.ITYPE.EQ.2)      RETURN
+C
+C          THE DEVICE RESOLUTIONS ARE FOR THE UNIT SQUARE:
+C
+      DLIMX= 2.0
+      DLIMY= 2.0
+C
+C          [MAPCHR] GIVES THE SOFTWARE:HARDWARE CHAR. MAPPINGS:
+C
+      DO 100 ISETCO= 1,256
+        IF (ISETCO.GT.33) GO TO 1
+
+        MAPCHR(ISETCO)= 32
+        GO TO 100
+
+    1   IF (ISETCO.GT.127) GO TO 2
+
+        MAPCHR(ISETCO)= ISETCO-1
+        GO TO 100
+
+    2   IF (ISETCO.NE.128) GO TO 3
+
+        MAPCHR(ISETCO)= 32
+        GO TO 100
+
+    3   IF (ISETCO.GT.224) GO TO 4
+
+        MAPCHR(ISETCO)= 35
+        GO TO 100
+
+    4   MAPCHR(ISETCO)= 215
+  100 CONTINUE
+
+      MAPCHR(131)= 198
+      MAPCHR(132)= 230
+      MAPCHR(133)= 254
+      MAPCHR(134)= 222
+      MAPCHR(135)= 163
+      MAPCHR(136)= 223
+      MAPCHR(137)= 176
+      MAPCHR(139)= 175
+      MAPCHR(140)= 168
+      MAPCHR(141)= 146
+      MAPCHR(142)=  94
+      MAPCHR(143)=  34
+      MAPCHR(144)= 126
+      MAPCHR(145)= 183
+      MAPCHR(147)=  45
+      MAPCHR(148)= 168
+      MAPCHR(149)=  96
+      MAPCHR(151)=  39
+      MAPCHR(152)=  96
+      MAPCHR(161)=  43
+      MAPCHR(162)=  42
+      MAPCHR(163)= 215
+      MAPCHR(164)= 177
+      MAPCHR(165)=  61
+      MAPCHR(167)= 126
+      MAPCHR(168)=  60
+      MAPCHR(170)= 171
+      MAPCHR(173)=  46
+      MAPCHR(176)=  39
+      MAPCHR(177)=  45
+      MAPCHR(178)= 247
+      MAPCHR(179)=  47
+      MAPCHR(184)=  62
+      MAPCHR(186)= 187
+      MAPCHR(189)= 176
+      MAPCHR(190)=  58
+      MAPCHR(192)= 168
+      MAPCHR(193)= 124
+      MAPCHR(201)=   1
+      MAPCHR(206)=  40
+      MAPCHR(207)=  91
+      MAPCHR(208)= 123
+      MAPCHR(210)= 172
+      MAPCHR(222)=  41
+      MAPCHR(223)=  93
+      MAPCHR(224)= 125
+      MAPCHR(234)= 183
+C
+C          THE DEVICE LINE WIDTH IS IN UNITS OF 0.001 IN ND-SPACE:
+C
+      ELWID= 0.3
+      NFILLI= 1
+      THIKST= 0.0005
+      IPOLYX(1)= 0
+      IPOLYY(1)= 0
+      ISIZEB= 1000
+      INPOLY= 1
+C
+C          THE INITIAL OUTPUT FILE NAME IS THE SCRATCH FILE
+C          SINCE THIS IS THE DEFAULT FOR AN INTERACTIVE DEVICE.
+C
+      DO 200 ISET= 1,32
+        NAMEFO(ISET)= NAMSCR(ISET)
+  200 CONTINUE
+C
+      LNFILN= LENSCR
+      SCRTCH= .TRUE.
+      INTRAC= .TRUE.
+C
+C          <G1HRDW> PERFORMS DEVICE INITIALISATION.
+C
+      IF (.NOT.DONE) CALL G1HRDW(0)
+C
+      DONE= .TRUE.
+      RETURN
+      END

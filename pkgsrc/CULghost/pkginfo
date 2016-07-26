@@ -1,0 +1,9 @@
+PKG=CULghost
+NAME=Ghost 80 graphics package
+ARCH=sparc
+VERSION=release 1.0
+CATEGORY=application
+VENDOR=Culham Electromagnetics and Lightning Limited
+EMAIL=info@culham.com
+CLASSES=none
+BASEDIR=/opt/culham

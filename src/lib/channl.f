@@ -1,0 +1,41 @@
+      SUBROUTINE CHANNL(NCHANL,ISWICH)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. (  16)   VERSION (A7.5)    11:FEB:85
+C          ------------------------------------------------
+C
+C          THIS SWITCHES THE GIVEN CHANNEL ON OR OFF.
+C
+C
+C          <NCHANL> GIVES THE CHANNEL NUMBER.
+C          <ISWICH> IS ZERO FOR OFF AND NON-ZERO FOR ON.
+C
+C
+      REAL    RDATA(1)
+      INTEGER IDATA(1)
+C
+      COMMON /T0DEVS/ KCHAN0(5),IRESL0
+      COMMON /T0TRAC/ IPRINT
+      COMMON /T0TRAI/ ITRAC1,ITRAC2,ITRAC3,ITRAC4
+C
+      DATA RDATA /0.0/
+C
+C
+      CALL G3INIT(2)
+C
+      ITRAC1= NCHANL
+      ITRAC2= ISWICH
+      IF (IPRINT.EQ.1) CALL G0MESG(122,6)
+C
+      IF (NCHANL.LE.0.OR.NCHANL.GT.5) RETURN
+C
+      IDATA(1)= NCHANL
+      IF (ISWICH.EQ.0) GO TO 1
+      KCHAN0(NCHANL)= 1
+      CALL G3LINK(3,1,-1,IDATA,RDATA)
+      RETURN
+C
+    1 KCHAN0(NCHANL)= 0
+      CALL G3LINK(3,2,-1,IDATA,RDATA)
+      RETURN
+      END

@@ -1,0 +1,186 @@
+      SUBROUTINE G1INIT(ITYPE)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. (1001)   VERSION (A8.1APC) 14:JUL:97
+C          ------------------------------------------------
+C
+C          THIS INITIALISES DEVICE-DEPENDENT VARIABLES.
+C          (THIS VERSION IS FOR ADOBE COLOUR POSTSCRIPT).
+C
+C     ******************************************************************
+C     *                                                                *
+C     *    NOTE: ALL GHOST DEVICE-DEPENDENT COMMON BLOCKS ARE          *
+C     *          SPECIFIED HERE. TO ENSURE THEIR INTEGRITY IT IS       *
+C     *          ESSENTIAL THAT THIS ROUTINE CANNOT BE SWAPPED-OUT.    *
+C     *                                                                *
+C     ******************************************************************
+C
+C
+C          <ITYPE> CONTROLS THE ACTION AS FOLLOWS:
+C
+C          =  1, INITIALISATION IS DONE UNCONDITIONALLY.
+C          =  2, INITIALISATION IS DONE ONLY IF NOT ALREADY DONE.
+C
+C
+      LOGICAL DONE,PSPP
+C
+      COMMON /T1APAA/ IXPLOT,IYPLOT,IXMSAV,IYMSAV,LENPTH,MAXPTH,
+     &                IDLLX,IDLLY,IDURX,IDURY,IPLLX,IPLLY,IPURX,IPURY
+      COMMON /T1APCB/ CHIGHT,ZOBLAT,IREDPO(255),IGRNPO(255),IBLUPO(255),
+     &                KOLOUR,IPAGE(17),IPGCNT,IPBBOX(26),IDBOX(14),
+     &                IPBOX(18)
+      COMMON /T1CDIM/ MAGN1,OBLAT1
+      COMMON /T1DLIM/ DLIMX,DLIMY
+      COMMON /T1DRES/ DRESX,DRESY
+      COMMON /T1HCOL/ IHCOL1(255,2)
+      COMMON /T1IOBF/ ICODEB(512),ISIZEB,INDXB,INITXB
+      COMMON /T1KDEF/ KOLLID,KOLBAD,MAXCLS
+      COMMON /T1LATT/ KOLIN1,ITHIK1
+      COMMON /T1LINT/ ELWID,NFILLI,THIKST
+      COMMON /T1POSP/ PSPP
+C
+      SAVE DONE
+C
+      DATA DONE /.FALSE./
+C
+C
+      IF (ITYPE.LT.1.OR.ITYPE.GT.2) RETURN
+      IF (DONE.AND.ITYPE.EQ.2)      RETURN
+C
+C          THE DEVICE LIMITS ARE IN ND-SPACE UNITS:
+C
+      DLIMX= 1.414
+      DLIMY= 1.0
+C
+C          THE DEVICE RESOLUTIONS ARE FOR THE UNIT SQUARE:
+C
+      DRESX= 2329.0
+      DRESY= 2329.0
+C
+C          THE OUTPUT BUFFER SIZE AND POINTER ARE SET. (THE
+C          DECLARED SIZE OF [ICODEB] SHOULD BE LARGE ENOUGH):
+C
+      ISIZEB= 80
+      INDXB= 1
+      INITXB= 1
+C
+C          THE DEVICE DEFAULT LINE COLOUR IS BLACK AND
+C          THE DEFAULT BACKGROUND COLOUR IS WHITE:
+C
+      KOLLID= 1
+      KOLBAD= 5
+      MAXCLS= 255
+      KOLIN1= KOLLID
+C
+      DO 200 ISETCO= 1,255
+        IHCOL1(ISETCO,1)= KOLLID
+        IHCOL1(ISETCO,2)= KOLLID
+  200 CONTINUE
+C
+C          THE DEVICE LINE WIDTH IS IN UNITS OF 0.001 IN ND-SPACE:
+C
+      ELWID= 0.5
+      NFILLI= 1
+      THIKST= 0.0005
+      PSPP= .TRUE.
+C
+C          THIS PART INITIALISES THE DEVICE COMMON BLOCKS:
+C
+      IXPLOT= -1
+      IYPLOT= -1
+      IXMSAV= 0
+      IYMSAV= 0
+      LENPTH= 0
+      MAXPTH= 1400
+      IDLLX= DLIMX*DRESX+1
+      IDLLY= DLIMY*DRESY+1
+      IDURX= -1
+      IDURY= -1
+      IPLLX= DLIMX*DRESX+1
+      IPLLY= DLIMY*DRESY+1
+      IPURX= -1
+      IPURY= -1
+      CHIGHT= (INT(DRESY)*MAGN1+500)/1000
+      ZOBLAT= 1.0
+C
+      DO 300 ISET=1,255
+        IREDPO(ISET)= 0
+        IGRNPO(ISET)= 0
+        IBLUPO(ISET)= 0
+  300 CONTINUE
+C
+      IREDPO(2)= 100
+      IREDPO(5)= 100
+      IREDPO(7)= 100
+      IREDPO(8)= 100
+      IGRNPO(3)= 100
+      IGRNPO(5)= 100
+      IGRNPO(6)= 100
+      IGRNPO(8)= 100
+      IBLUPO(4)= 100
+      IBLUPO(5)= 100
+      IBLUPO(6)= 100
+      IBLUPO(7)= 100
+      KOLOUR= KOLLID
+      IPAGE(1)= 37
+      IPAGE(2)= 37
+      IPAGE(3)= 80
+      IPAGE(4)= 97
+      IPAGE(5)= 103
+      IPAGE(6)= 101
+      IPAGE(7)= 58
+      IPAGE(8)= 32
+      IPAGE(9)= 70
+      IPAGE(10)= 114
+      IPAGE(11)= 97
+      IPAGE(12)= 109
+      IPAGE(13)= 101
+      IPAGE(14)= 32
+      IPAGE(15)= 48
+      IPAGE(16)= 48
+      IPAGE(17)= 49
+      IPGCNT= 1
+      IPBBOX(1)= 37
+      IPBBOX(2)= 37
+      IPBBOX(3)= 80
+      IPBBOX(4)= 97
+      IPBBOX(5)= 103
+      IPBBOX(6)= 101
+      IPBBOX(7)= 66
+      IPBBOX(8)= 111
+      IPBBOX(9)= 117
+      IPBBOX(10)= 110
+      IPBBOX(11)= 100
+      IPBBOX(12)= 105
+      IPBBOX(13)= 110
+      IPBBOX(14)= 103
+      IPBBOX(15)= 66
+      IPBBOX(16)= 111
+      IPBBOX(17)= 120
+      IPBBOX(18)= 58
+      IPBBOX(19)= 32
+      IPBBOX(20)= 40
+      IPBBOX(21)= 97
+      IPBBOX(22)= 116
+      IPBBOX(23)= 101
+      IPBBOX(24)= 110
+      IPBBOX(25)= 100
+      IPBBOX(26)= 41
+C
+      DO 400 ISET= 1,18
+        IPBOX(ISET)= IPBBOX(ISET)
+  400 CONTINUE
+C
+      IDBOX(1)= 37
+      IDBOX(2)= 37
+C
+      DO 500 ISET= 3,14
+        IDBOX(ISET)= IPBOX(ISET+4)
+  500 CONTINUE
+C
+C          <G1HRDW> PERFORMS DEVICE INITIALISATION.
+C
+      CALL G1HRDW(0)
+      DONE= .TRUE.
+      RETURN
+      END

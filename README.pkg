@@ -1,0 +1,8 @@
+BUILDING A SOLARIS PACKAGE
+==========================
+
+After building and installing the software, change
+to the pkgrsc/CULghost directory and issue the command:
+
+pkgmk -r /opt/culham -d /output/dir
+

@@ -1,0 +1,9 @@
+1) Test on more machines.
+2) Include LaTeX documentation.
+3) Improve xgenie:
+   a) more flexible X visual and colormap support
+   b) remove dead code.
+4) Port to Windows NT using DLLs.
+5) Document GHOST and XGENIE environment variables.
+6) Fix problem building outside source directory on IRIX.
+7) Fix xgenie.tcl with xghost -int.

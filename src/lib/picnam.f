@@ -1,0 +1,45 @@
+      SUBROUTINE PICNAM(NMPICT)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. ( 309)   VERSION (A7.7)    11:FEB:85
+C                         === FORTRAN-77 ===
+C          ------------------------------------------------
+C
+C          THIS SETS UP A PICTURE OF THE GIVEN NAME.
+C
+C
+      LOGICAL   BLANK
+      LOGICAL   ERRON
+      CHARACTER NMPICT*(*)
+C
+      COMMON /T2OPNA/ NAMEFO(32),NAMEPO(4)
+      COMMON /T2OPNL/ LNFILN,LNPICN
+      COMMON /T3ERRS/ ERRON,NUMERR
+      COMMON /T3MACH/ NMCHI,NBITMC
+      COMMON /T3SPAC/ ISPACE(1)
+C
+C
+      CALL G0FRAM
+C
+      LNPICN= LEN(NMPICT)
+      IF (LNPICN.LE.16) GO TO 1
+      LNPICN= 16
+      NUMERR= 19
+      IF (ERRON) CALL G0ERMS
+C
+    1 LIMIT= NMCHI*4
+      BLANK= .TRUE.
+      ISPAC= 0
+      CALL G4GETK(ISPACE,NMCHI,NBITMC,NMCHI,ISPAC)
+C
+      DO 100 ISET= 1,LIMIT
+        NCHAR= ISPAC
+        IF (ISET.LE.LNPICN) NCHAR= ICHAR(NMPICT(ISET:ISET))
+        IF (NCHAR.NE.ISPAC) BLANK= .FALSE.
+        CALL G4PUTK(NAMEPO,ISET,NBITMC,NMCHI,NCHAR)
+  100 CONTINUE
+C
+      IF (BLANK) LNPICN= 0
+C
+      RETURN
+      END

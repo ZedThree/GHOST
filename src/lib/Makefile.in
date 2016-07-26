@@ -1,0 +1,602 @@
+# Makefile.in generated automatically by automake 1.4-p5 from Makefile.am
+
+# Copyright (C) 1994, 1995-8, 1999, 2001 Free Software Foundation, Inc.
+# This Makefile.in is free software; the Free Software Foundation
+# gives unlimited permission to copy and/or distribute it,
+# with or without modifications, as long as this notice is preserved.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY, to the extent permitted by law; without
+# even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SHELL = @SHELL@
+
+srcdir = @srcdir@
+top_srcdir = @top_srcdir@
+VPATH = @srcdir@
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+
+bindir = @bindir@
+sbindir = @sbindir@
+libexecdir = @libexecdir@
+datadir = @datadir@
+sysconfdir = @sysconfdir@
+sharedstatedir = @sharedstatedir@
+localstatedir = @localstatedir@
+libdir = @libdir@
+infodir = @infodir@
+mandir = @mandir@
+includedir = @includedir@
+oldincludedir = /usr/include
+
+DESTDIR =
+
+pkgdatadir = $(datadir)/@PACKAGE@
+pkglibdir = $(libdir)/@PACKAGE@
+pkgincludedir = $(includedir)/@PACKAGE@
+
+top_builddir = ../..
+
+ACLOCAL = @ACLOCAL@
+AUTOCONF = @AUTOCONF@
+AUTOMAKE = @AUTOMAKE@
+AUTOHEADER = @AUTOHEADER@
+
+INSTALL = @INSTALL@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@ $(AM_INSTALL_PROGRAM_FLAGS)
+INSTALL_DATA = @INSTALL_DATA@
+INSTALL_SCRIPT = @INSTALL_SCRIPT@
+transform = @program_transform_name@
+
+NORMAL_INSTALL = :
+PRE_INSTALL = :
+POST_INSTALL = :
+NORMAL_UNINSTALL = :
+PRE_UNINSTALL = :
+POST_UNINSTALL = :
+host_alias = @host_alias@
+host_triplet = @host@
+AS = @AS@
+CC = @CC@
+DLLTOOL = @DLLTOOL@
+ECHO = @ECHO@
+EXEEXT = @EXEEXT@
+F77 = @F77@
+LIBTOOL = @LIBTOOL@
+LN_S = @LN_S@
+MAKEINFO = @MAKEINFO@
+OBJDUMP = @OBJDUMP@
+OBJEXT = @OBJEXT@
+PACKAGE = @PACKAGE@
+RANLIB = @RANLIB@
+STRIP = @STRIP@
+VERSION = @VERSION@
+
+AUTOMAKE_OPTIONS = foreign no-dependencies
+
+EXTRA_DIST =  libdecode.mak libghost.mak libgrid.mak libgrid_decode.mak libgrid_hpgl2.mak libgrid_postcl.mak libgrid_postsc.mak libgrid_trenc.mak libgrid_xghost.mak libhpgl2.mak libpostcl.mak libpostsc.mak libtrand.mak libtrenc.mak libxghost.mak
+
+
+lib_LTLIBRARIES =  libdecode.la libghost.la libgrid.la libgrid_decode.la libgrid_hpgl2.la libgrid_postcl.la libgrid_postsc.la libgrid_trenc.la libgrid_xghost.la libhpgl2.la libpostcl.la libpostsc.la libtrand.la libtrenc.la libxghost.la
+
+
+libdecode_la_SOURCES =  g3flind.f g3flsvb.f g3grina.f g3initb.f g3linkd.f g3sysi.f g1clsnb.f g1initde.f g1hrdwde.f g1cmlna.f g1dviode.f g1erms.f g4bacod.f g4cocod.f g4getb.c g4getc.c g4getk.c g4putb.c g4putc.c g4putk.c lenstr.f
+
+
+libghost_la_SOURCES =  g0maps.f annotp.f arc.f arcell.f axes.f axessi.f axexl.f axexli.f axexyl.f axeyl.f axeyli.f axints.f axnota.f axorig.f baccol.f bar3d.f barcht.f barflg.f bartyp.f border.f br3ang.f br3bas.f br3col.f br3lbl.f br3rat.f broken.f cdefin.f channl.f circle.f clrbuf.f conlbl.f conota.f contia.f contif.f contil.f contra.f contrf.f contrl.f coords.f cretrn.f crlnfd.f curvec.f curvem.f defpen.f degree.f devoff.f devon.f ellpse.f endbuf.f enqaxi.f enqcon.f enqcro.f enqdat.c enqerr.f enqhat.f enqinf.f enqioc.f enqmap.f enqmsk.f enqpos.f enqrun.f enqtim.c enqtra.f erase.f errbar.f errors.f filcol.f filend.f filinf.f filnam.f filoff.f filon.f fllbnd.f frame.f full.f gargs.f gksdev.f gpstop.f grad.f graphc.f graphf.f graphx.f gratic.f gratsi.f graxl.f graxli.f graxyl.f grayl.f grayli.f grend.f hatang.f hatcol.f hatdef.f hatdup.f hatlsh.f hatlst.f hatopt.f hatpch.f hatphs.f hatsft.f hatype.f histgm.f hmenu.f hrdchr.f hrdlin.f hsi.f hsv.f incbar.f inchis.f intens.f iochnl.f isosur.f lbcols.f linef.f locate.f lstcol.f mapfol.f mapxl.f mapxyl.f mapyl.f marker.f mask.f matcol.f move.f movept.f mskchr.f mulbar.f mulhis.f offbar.f paper.f pcsend.f picinf.f picnam.f picnow.f picsav.f pictur.f pieang.f piecht.f pielbl.f pielbm.f place.f plotne.f plotnf.f plotst.f pspace.f ptgraf.f ptjoin.f ptplot.f qadrnt.f radian.f regrid.f rgb.f rotate.f scale.f scales.f scalsi.f scaxl.f scaxli.f scaxyl.f scayl.f scayli.f secell.f selbuf.f surang.f suraxe.f surbas.f surcl4.f surcol.f surcon.f surcut.f surfl4.f surflc.f surind.f surlit.f surplt.f surref.f surrot.f sursca.f surshd.f surskl.f swichr.f tablet.f tclipa.f tpict.f unlbuf.f unmask.f vmenu.f winchr.f xaxis.f xaxisi.f xaxisl.f xgrat.f xgrati.f xgratl.f xscale.f xscali.f xscall.f yaxis.f yaxisi.f yaxisl.f ygrat.f ygrati.f ygratl.f yscale.f yscali.f yscall.f colset.f cspace.f ctrang.f ctrori.f cursor.f hchtky.f hls.f intrp1.f intrp2.f plotcs.f point.f seccir.f tcsend.f typest.f vchtky.f winfol.f g0cfl1.f g0ctia.f g0ctra.f g0divl.f g0fram.f g0olap.f g0plax.f g0play.f g0plxl.f g0plyl.f g0scl4.f g0scut.f g0sfl4.f g0sflc.f g0sini.f g0splt.f g0sshd.f g0tick.f g0vecs.f box.f ctrfnt.f ctrobl.f enqchr.f enqlin.f hlinfd.f hspace.f italic.f lincol.f map.f pcscen.f suffix.f thick.f undlin.f g0cfl2.f g0cfl3.f g0cfl4.f g0cplt.f g0gpos.f g0insd.f g0sadd.f g0sax1.f g0sclp.f g0sdel.f g0shad.f g0sind.f g0smat.f curveo.f line.f linefd.f plotnc.f plotni.f tcscen.f typene.f g0cfl5.f g0intr.f g0sax2.f g0scpt.f g0sflp.f join.f normal.f space.f supfix.f typecsb.f typenc.f typenf.f typeni.f g0auto.f g0curv.f g0divs.f window.f g0coni.f g0sizs.f positn.f ctrsiz.f ctrslp.f scarot.f unloc.f ctrmag.f g0mapp.f g0erms.f g0mesg.f g4nexr.f g4nexs.f g4nexi.f g4nexc.f
+
+
+libgrid_la_SOURCES =  g3flina.f g3flsva.f g3grina.f g3inita.f g3linka.f g3sysi.f g2buff.f g2file.f g2sysi.F g2shutb.f g2ermsa.f g4bacod.f g4cocod.f g4getb.c g4getc.c g4getk.c g4putb.c g4putc.c g4putk.c
+
+
+libgrid_decode_la_SOURCES =  g1clsnb.f g1cmlna.f g1dviode.f g1erms.f g1hrdwde.f g1initde.f g2buff.f g2ermsa.f g2file.f g2shutb.f g2sysi.F g3flinc.f g3flsvb.f g3grina.f g3initc.f g3linke.f g3sysi.f g4bacod.f g4cocod.f g4getb.c g4getc.c g4getk.c g4putb.c g4putc.c g4putk.c lenstr.f
+
+
+libgrid_hpgl2_la_SOURCES =  g1buffh4.f g1char.f g1chio.F g1chsp.f g1clip.f g1cls0.f g1cls2.f g1cls3.f g1cls4.f g1cls5.f g1cls7.f g1cmlna.f g1conc.f g1crv1.f g1disc.f g1dviof.f g1erms.f g1filb.f g1hrdwh9.f g1inith9.f g1line.f g1mapp.f g1marv.f g1movc.f g1shad.f g1spec.f g1tranh9.f g1vecth1.f g2buff.f g2ermsb.f g2file.f g2shutb.f g2sysi.F g3flina.f g3flsva.f g3grina.f g3initc.f g3linkc.f g3sysi.f g4bacod.f g4cocod.f g4getb.c g4getc.c g4getk.c g4putb.c g4putc.c g4putk.c lenstr.f
+
+
+libgrid_postcl_la_SOURCES =  g3flina.f g3flsva.f g3grina.f g3initc.f g3linkc.f g3sysi.f g1cls0.f g1cls2.f g1cls3.f g1cls4.f g1cls5.f g1cls7.f g1initapc.f g1marv.f g1char.f g1chsp.f g1conc.f g1crv1.f g1hrdwapc.f g1mapp.f g1movc.f g1chio.F g1cmlna.f g1line.f g1spec.f g1clip.f g1filb.f g1tranapc.f g1disc.f g1shad.f g1vectap.f g1buffa.f g1dvioap.f g1erms.f g2buff.f g2file.f g2sysi.F g2shutb.f g2ermsb.f g4bacod.f g4cocod.f g4getb.c g4getc.c g4getk.c g4putb.c g4putc.c g4putk.c lenstr.f
+
+
+libgrid_postsc_la_SOURCES =  g3flina.f g3flsva.f g3grina.f g3initc.f g3linkc.f g3sysi.f g1cls0.f g1cls2.f g1cls3.f g1cls4.f g1cls5.f g1cls7.f g1initap.f g1marv.f g1char.f g1chsp.f g1conc.f g1crv1.f g1hrdwap.f g1mapp.f g1movc.f g1chio.F g1cmlna.f g1line.f g1spec.f g1clip.f g1filb.f g1tranap.f g1disc.f g1shad.f g1vectap.f g1buffa.f g1dvioap.f g1erms.f g2buff.f g2file.f g2sysi.F g2shutb.f g2ermsb.f g4bacod.f g4cocod.f g4getb.c g4getc.c g4getk.c g4putb.c g4putc.c g4putk.c lenstr.f
+
+
+libgrid_trenc_la_SOURCES =  g3flinc.f g3flsvb.f g3grina.f g3initc.f g3linke.f g3sysi.f g1clsna.f g1inittg.f g1hrdwtg.f g1cmlna.f g1trantg.f g1dviotg.f g1erms.f g2buff.f g2file.f g2sysi.F g2shutb.f g2ermsa.f g4bacod.f g4cocod.f g4getb.c g4getc.c g4getk.c g4putb.c g4putc.c g4putk.c lenstr.f
+
+
+libgrid_xghost_la_SOURCES =  g3flina.f g3flsva.f g3grinb.f g3initc.f g3linkc.f g3sysi.f g1cls0.f g1cls2.f g1cls3.f g1cls4.f g1cls5.f g1cls7.f g1initx11.f g1marv.f g1char.f g1chsp.f g1conc.f g1crv1.f g1hrdwx11.f g1mapp.f g1movc.f g1chio.F g1cmlna.f g1line.f g1spec.f g1clip.f g1filb.f g1tranx11.f g1disc.f g1shad.f g1vectx11.f g1erms.f g2buff.f g2file.f g2sysi.F g2shutb.f g2ermsb.f g4bacod.f g4cocod.f g4getb.c g4getc.c g4getk.c g4putb.c g4putc.c g4putk.c lenstr.f xgenieIF.c Opcodes.h xgenie.h
+
+
+libhpgl2_la_SOURCES =  g3flinb.f g3flsvb.f g3grina.f g3initb.f g3linkb.f g3sysi.f g1cls0.f g1cls2.f g1cls3.f g1cls4.f g1cls5.f g1cls7.f g1inith9.f g1marv.f g1char.f g1chsp.f g1conc.f g1crv1.f g1hrdwh9.f g1mapp.f g1movc.f g1chio.F g1cmlna.f g1line.f g1spec.f g1clip.f g1filb.f g1tranh9.f g1disc.f g1shad.f g1vecth1.f g1buffh4.f g1dviof.f g1erms.f g4bacod.f g4cocod.f g4getb.c g4getc.c g4getk.c g4putb.c g4putc.c g4putk.c lenstr.f
+
+
+libpostcl_la_SOURCES =  g3flinb.f g3flsvb.f g3grina.f g3initb.f g3linkb.f g3sysi.f g1cls0.f g1cls2.f g1cls3.f g1cls4.f g1cls5.f g1cls7.f g1initapc.f g1marv.f g1char.f g1chsp.f g1conc.f g1crv1.f g1hrdwapc.f g1mapp.f g1movc.f g1chio.F g1cmlna.f g1line.f g1spec.f g1clip.f g1filb.f g1tranapc.f g1disc.f g1shad.f g1vectap.f g1buffa.f g1dvioap.f g1erms.f g4bacod.f g4cocod.f g4getb.c g4getc.c g4getk.c g4putb.c g4putc.c g4putk.c lenstr.f
+
+
+libpostsc_la_SOURCES =  g3flinb.f g3flsvb.f g3grina.f g3initb.f g3linkb.f g3sysi.f g1cls0.f g1cls2.f g1cls3.f g1cls4.f g1cls5.f g1cls7.f g1initap.f g1marv.f g1char.f g1chsp.f g1conc.f g1crv1.f g1hrdwap.f g1mapp.f g1movc.f g1chio.F g1cmlna.f g1line.f g1spec.f g1clip.f g1filb.f g1tranap.f g1disc.f g1shad.f g1vectap.f g1buffa.f g1dvioap.f g1erms.f g4bacod.f g4cocod.f g4getb.c g4getc.c g4getk.c g4putb.c g4putc.c g4putk.c lenstr.f
+
+
+libtrand_la_SOURCES =  enqrun.f g5lodi.f g5newfa.f g5trinb.f g5erms.f lenstr.f
+
+
+libtrenc_la_SOURCES =  g3flind.f g3flsvb.f g3grina.f g3initb.f g3linkd.f g3sysi.f g1clsna.f g1inittg.f g1hrdwtg.f g1cmlna.f g1trantg.f g1dviotg.f g1erms.f g4bacod.f g4cocod.f g4getb.c g4getc.c g4getk.c g4putb.c g4putc.c g4putk.c
+
+
+libxghost_la_SOURCES = g3flinb.f g3flsvb.f g3grinb.f g3initb.f g3linkb.f g3sysi.f g1cls0.f g1cls2.f g1cls3.f g1cls4.f g1cls5.f g1cls7.f g1initx11.f g1marv.f g1char.f g1chsp.f g1conc.f g1crv1.f g1hrdwx11.f g1mapp.f g1movc.f g1chio.F g1cmlna.f g1line.f g1spec.f g1clip.f g1filb.f g1tranx11.f g1disc.f g1shad.f  g1vectx11.f  g1erms.f g4bacod.f g4cocod.f g4getb.c g4getc.c g4getk.c g4putb.c g4putc.c g4putk.c lenstr.f xgenieIF.c Opcodes.h xgenie.h
+
+mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
+CONFIG_CLEAN_FILES = 
+LTLIBRARIES =  $(lib_LTLIBRARIES)
+
+
+DEFS = @DEFS@ -I. -I$(srcdir) 
+CPPFLAGS = @CPPFLAGS@
+LDFLAGS = @LDFLAGS@
+LIBS = @LIBS@
+X_CFLAGS = @X_CFLAGS@
+X_LIBS = @X_LIBS@
+X_EXTRA_LIBS = @X_EXTRA_LIBS@
+X_PRE_LIBS = @X_PRE_LIBS@
+libdecode_la_LDFLAGS = 
+libdecode_la_LIBADD = 
+libdecode_la_OBJECTS =  g3flind.lo g3flsvb.lo g3grina.lo g3initb.lo \
+g3linkd.lo g3sysi.lo g1clsnb.lo g1initde.lo g1hrdwde.lo g1cmlna.lo \
+g1dviode.lo g1erms.lo g4bacod.lo g4cocod.lo g4getb.lo g4getc.lo \
+g4getk.lo g4putb.lo g4putc.lo g4putk.lo lenstr.lo
+libghost_la_LDFLAGS = 
+libghost_la_LIBADD = 
+libghost_la_OBJECTS =  g0maps.lo annotp.lo arc.lo arcell.lo axes.lo \
+axessi.lo axexl.lo axexli.lo axexyl.lo axeyl.lo axeyli.lo axints.lo \
+axnota.lo axorig.lo baccol.lo bar3d.lo barcht.lo barflg.lo bartyp.lo \
+border.lo br3ang.lo br3bas.lo br3col.lo br3lbl.lo br3rat.lo broken.lo \
+cdefin.lo channl.lo circle.lo clrbuf.lo conlbl.lo conota.lo contia.lo \
+contif.lo contil.lo contra.lo contrf.lo contrl.lo coords.lo cretrn.lo \
+crlnfd.lo curvec.lo curvem.lo defpen.lo degree.lo devoff.lo devon.lo \
+ellpse.lo endbuf.lo enqaxi.lo enqcon.lo enqcro.lo enqdat.lo enqerr.lo \
+enqhat.lo enqinf.lo enqioc.lo enqmap.lo enqmsk.lo enqpos.lo enqrun.lo \
+enqtim.lo enqtra.lo erase.lo errbar.lo errors.lo filcol.lo filend.lo \
+filinf.lo filnam.lo filoff.lo filon.lo fllbnd.lo frame.lo full.lo \
+gargs.lo gksdev.lo gpstop.lo grad.lo graphc.lo graphf.lo graphx.lo \
+gratic.lo gratsi.lo graxl.lo graxli.lo graxyl.lo grayl.lo grayli.lo \
+grend.lo hatang.lo hatcol.lo hatdef.lo hatdup.lo hatlsh.lo hatlst.lo \
+hatopt.lo hatpch.lo hatphs.lo hatsft.lo hatype.lo histgm.lo hmenu.lo \
+hrdchr.lo hrdlin.lo hsi.lo hsv.lo incbar.lo inchis.lo intens.lo \
+iochnl.lo isosur.lo lbcols.lo linef.lo locate.lo lstcol.lo mapfol.lo \
+mapxl.lo mapxyl.lo mapyl.lo marker.lo mask.lo matcol.lo move.lo \
+movept.lo mskchr.lo mulbar.lo mulhis.lo offbar.lo paper.lo pcsend.lo \
+picinf.lo picnam.lo picnow.lo picsav.lo pictur.lo pieang.lo piecht.lo \
+pielbl.lo pielbm.lo place.lo plotne.lo plotnf.lo plotst.lo pspace.lo \
+ptgraf.lo ptjoin.lo ptplot.lo qadrnt.lo radian.lo regrid.lo rgb.lo \
+rotate.lo scale.lo scales.lo scalsi.lo scaxl.lo scaxli.lo scaxyl.lo \
+scayl.lo scayli.lo secell.lo selbuf.lo surang.lo suraxe.lo surbas.lo \
+surcl4.lo surcol.lo surcon.lo surcut.lo surfl4.lo surflc.lo surind.lo \
+surlit.lo surplt.lo surref.lo surrot.lo sursca.lo surshd.lo surskl.lo \
+swichr.lo tablet.lo tclipa.lo tpict.lo unlbuf.lo unmask.lo vmenu.lo \
+winchr.lo xaxis.lo xaxisi.lo xaxisl.lo xgrat.lo xgrati.lo xgratl.lo \
+xscale.lo xscali.lo xscall.lo yaxis.lo yaxisi.lo yaxisl.lo ygrat.lo \
+ygrati.lo ygratl.lo yscale.lo yscali.lo yscall.lo colset.lo cspace.lo \
+ctrang.lo ctrori.lo cursor.lo hchtky.lo hls.lo intrp1.lo intrp2.lo \
+plotcs.lo point.lo seccir.lo tcsend.lo typest.lo vchtky.lo winfol.lo \
+g0cfl1.lo g0ctia.lo g0ctra.lo g0divl.lo g0fram.lo g0olap.lo g0plax.lo \
+g0play.lo g0plxl.lo g0plyl.lo g0scl4.lo g0scut.lo g0sfl4.lo g0sflc.lo \
+g0sini.lo g0splt.lo g0sshd.lo g0tick.lo g0vecs.lo box.lo ctrfnt.lo \
+ctrobl.lo enqchr.lo enqlin.lo hlinfd.lo hspace.lo italic.lo lincol.lo \
+map.lo pcscen.lo suffix.lo thick.lo undlin.lo g0cfl2.lo g0cfl3.lo \
+g0cfl4.lo g0cplt.lo g0gpos.lo g0insd.lo g0sadd.lo g0sax1.lo g0sclp.lo \
+g0sdel.lo g0shad.lo g0sind.lo g0smat.lo curveo.lo line.lo linefd.lo \
+plotnc.lo plotni.lo tcscen.lo typene.lo g0cfl5.lo g0intr.lo g0sax2.lo \
+g0scpt.lo g0sflp.lo join.lo normal.lo space.lo supfix.lo typecsb.lo \
+typenc.lo typenf.lo typeni.lo g0auto.lo g0curv.lo g0divs.lo window.lo \
+g0coni.lo g0sizs.lo positn.lo ctrsiz.lo ctrslp.lo scarot.lo unloc.lo \
+ctrmag.lo g0mapp.lo g0erms.lo g0mesg.lo g4nexr.lo g4nexs.lo g4nexi.lo \
+g4nexc.lo
+libgrid_la_LDFLAGS = 
+libgrid_la_LIBADD = 
+libgrid_la_OBJECTS =  g3flina.lo g3flsva.lo g3grina.lo g3inita.lo \
+g3linka.lo g3sysi.lo g2buff.lo g2file.lo g2sysi.lo g2shutb.lo \
+g2ermsa.lo g4bacod.lo g4cocod.lo g4getb.lo g4getc.lo g4getk.lo \
+g4putb.lo g4putc.lo g4putk.lo
+libgrid_decode_la_LDFLAGS = 
+libgrid_decode_la_LIBADD = 
+libgrid_decode_la_OBJECTS =  g1clsnb.lo g1cmlna.lo g1dviode.lo g1erms.lo \
+g1hrdwde.lo g1initde.lo g2buff.lo g2ermsa.lo g2file.lo g2shutb.lo \
+g2sysi.lo g3flinc.lo g3flsvb.lo g3grina.lo g3initc.lo g3linke.lo \
+g3sysi.lo g4bacod.lo g4cocod.lo g4getb.lo g4getc.lo g4getk.lo g4putb.lo \
+g4putc.lo g4putk.lo lenstr.lo
+libgrid_hpgl2_la_LDFLAGS = 
+libgrid_hpgl2_la_LIBADD = 
+libgrid_hpgl2_la_OBJECTS =  g1buffh4.lo g1char.lo g1chio.lo g1chsp.lo \
+g1clip.lo g1cls0.lo g1cls2.lo g1cls3.lo g1cls4.lo g1cls5.lo g1cls7.lo \
+g1cmlna.lo g1conc.lo g1crv1.lo g1disc.lo g1dviof.lo g1erms.lo g1filb.lo \
+g1hrdwh9.lo g1inith9.lo g1line.lo g1mapp.lo g1marv.lo g1movc.lo \
+g1shad.lo g1spec.lo g1tranh9.lo g1vecth1.lo g2buff.lo g2ermsb.lo \
+g2file.lo g2shutb.lo g2sysi.lo g3flina.lo g3flsva.lo g3grina.lo \
+g3initc.lo g3linkc.lo g3sysi.lo g4bacod.lo g4cocod.lo g4getb.lo \
+g4getc.lo g4getk.lo g4putb.lo g4putc.lo g4putk.lo lenstr.lo
+libgrid_postcl_la_LDFLAGS = 
+libgrid_postcl_la_LIBADD = 
+libgrid_postcl_la_OBJECTS =  g3flina.lo g3flsva.lo g3grina.lo g3initc.lo \
+g3linkc.lo g3sysi.lo g1cls0.lo g1cls2.lo g1cls3.lo g1cls4.lo g1cls5.lo \
+g1cls7.lo g1initapc.lo g1marv.lo g1char.lo g1chsp.lo g1conc.lo \
+g1crv1.lo g1hrdwapc.lo g1mapp.lo g1movc.lo g1chio.lo g1cmlna.lo \
+g1line.lo g1spec.lo g1clip.lo g1filb.lo g1tranapc.lo g1disc.lo \
+g1shad.lo g1vectap.lo g1buffa.lo g1dvioap.lo g1erms.lo g2buff.lo \
+g2file.lo g2sysi.lo g2shutb.lo g2ermsb.lo g4bacod.lo g4cocod.lo \
+g4getb.lo g4getc.lo g4getk.lo g4putb.lo g4putc.lo g4putk.lo lenstr.lo
+libgrid_postsc_la_LDFLAGS = 
+libgrid_postsc_la_LIBADD = 
+libgrid_postsc_la_OBJECTS =  g3flina.lo g3flsva.lo g3grina.lo g3initc.lo \
+g3linkc.lo g3sysi.lo g1cls0.lo g1cls2.lo g1cls3.lo g1cls4.lo g1cls5.lo \
+g1cls7.lo g1initap.lo g1marv.lo g1char.lo g1chsp.lo g1conc.lo g1crv1.lo \
+g1hrdwap.lo g1mapp.lo g1movc.lo g1chio.lo g1cmlna.lo g1line.lo \
+g1spec.lo g1clip.lo g1filb.lo g1tranap.lo g1disc.lo g1shad.lo \
+g1vectap.lo g1buffa.lo g1dvioap.lo g1erms.lo g2buff.lo g2file.lo \
+g2sysi.lo g2shutb.lo g2ermsb.lo g4bacod.lo g4cocod.lo g4getb.lo \
+g4getc.lo g4getk.lo g4putb.lo g4putc.lo g4putk.lo lenstr.lo
+libgrid_trenc_la_LDFLAGS = 
+libgrid_trenc_la_LIBADD = 
+libgrid_trenc_la_OBJECTS =  g3flinc.lo g3flsvb.lo g3grina.lo g3initc.lo \
+g3linke.lo g3sysi.lo g1clsna.lo g1inittg.lo g1hrdwtg.lo g1cmlna.lo \
+g1trantg.lo g1dviotg.lo g1erms.lo g2buff.lo g2file.lo g2sysi.lo \
+g2shutb.lo g2ermsa.lo g4bacod.lo g4cocod.lo g4getb.lo g4getc.lo \
+g4getk.lo g4putb.lo g4putc.lo g4putk.lo lenstr.lo
+libgrid_xghost_la_LDFLAGS = 
+libgrid_xghost_la_LIBADD = 
+libgrid_xghost_la_OBJECTS =  g3flina.lo g3flsva.lo g3grinb.lo g3initc.lo \
+g3linkc.lo g3sysi.lo g1cls0.lo g1cls2.lo g1cls3.lo g1cls4.lo g1cls5.lo \
+g1cls7.lo g1initx11.lo g1marv.lo g1char.lo g1chsp.lo g1conc.lo \
+g1crv1.lo g1hrdwx11.lo g1mapp.lo g1movc.lo g1chio.lo g1cmlna.lo \
+g1line.lo g1spec.lo g1clip.lo g1filb.lo g1tranx11.lo g1disc.lo \
+g1shad.lo g1vectx11.lo g1erms.lo g2buff.lo g2file.lo g2sysi.lo \
+g2shutb.lo g2ermsb.lo g4bacod.lo g4cocod.lo g4getb.lo g4getc.lo \
+g4getk.lo g4putb.lo g4putc.lo g4putk.lo lenstr.lo xgenieIF.lo
+libhpgl2_la_LDFLAGS = 
+libhpgl2_la_LIBADD = 
+libhpgl2_la_OBJECTS =  g3flinb.lo g3flsvb.lo g3grina.lo g3initb.lo \
+g3linkb.lo g3sysi.lo g1cls0.lo g1cls2.lo g1cls3.lo g1cls4.lo g1cls5.lo \
+g1cls7.lo g1inith9.lo g1marv.lo g1char.lo g1chsp.lo g1conc.lo g1crv1.lo \
+g1hrdwh9.lo g1mapp.lo g1movc.lo g1chio.lo g1cmlna.lo g1line.lo \
+g1spec.lo g1clip.lo g1filb.lo g1tranh9.lo g1disc.lo g1shad.lo \
+g1vecth1.lo g1buffh4.lo g1dviof.lo g1erms.lo g4bacod.lo g4cocod.lo \
+g4getb.lo g4getc.lo g4getk.lo g4putb.lo g4putc.lo g4putk.lo lenstr.lo
+libpostcl_la_LDFLAGS = 
+libpostcl_la_LIBADD = 
+libpostcl_la_OBJECTS =  g3flinb.lo g3flsvb.lo g3grina.lo g3initb.lo \
+g3linkb.lo g3sysi.lo g1cls0.lo g1cls2.lo g1cls3.lo g1cls4.lo g1cls5.lo \
+g1cls7.lo g1initapc.lo g1marv.lo g1char.lo g1chsp.lo g1conc.lo \
+g1crv1.lo g1hrdwapc.lo g1mapp.lo g1movc.lo g1chio.lo g1cmlna.lo \
+g1line.lo g1spec.lo g1clip.lo g1filb.lo g1tranapc.lo g1disc.lo \
+g1shad.lo g1vectap.lo g1buffa.lo g1dvioap.lo g1erms.lo g4bacod.lo \
+g4cocod.lo g4getb.lo g4getc.lo g4getk.lo g4putb.lo g4putc.lo g4putk.lo \
+lenstr.lo
+libpostsc_la_LDFLAGS = 
+libpostsc_la_LIBADD = 
+libpostsc_la_OBJECTS =  g3flinb.lo g3flsvb.lo g3grina.lo g3initb.lo \
+g3linkb.lo g3sysi.lo g1cls0.lo g1cls2.lo g1cls3.lo g1cls4.lo g1cls5.lo \
+g1cls7.lo g1initap.lo g1marv.lo g1char.lo g1chsp.lo g1conc.lo g1crv1.lo \
+g1hrdwap.lo g1mapp.lo g1movc.lo g1chio.lo g1cmlna.lo g1line.lo \
+g1spec.lo g1clip.lo g1filb.lo g1tranap.lo g1disc.lo g1shad.lo \
+g1vectap.lo g1buffa.lo g1dvioap.lo g1erms.lo g4bacod.lo g4cocod.lo \
+g4getb.lo g4getc.lo g4getk.lo g4putb.lo g4putc.lo g4putk.lo lenstr.lo
+libtrand_la_LDFLAGS = 
+libtrand_la_LIBADD = 
+libtrand_la_OBJECTS =  enqrun.lo g5lodi.lo g5newfa.lo g5trinb.lo \
+g5erms.lo lenstr.lo
+libtrenc_la_LDFLAGS = 
+libtrenc_la_LIBADD = 
+libtrenc_la_OBJECTS =  g3flind.lo g3flsvb.lo g3grina.lo g3initb.lo \
+g3linkd.lo g3sysi.lo g1clsna.lo g1inittg.lo g1hrdwtg.lo g1cmlna.lo \
+g1trantg.lo g1dviotg.lo g1erms.lo g4bacod.lo g4cocod.lo g4getb.lo \
+g4getc.lo g4getk.lo g4putb.lo g4putc.lo g4putk.lo
+libxghost_la_LDFLAGS = 
+libxghost_la_LIBADD = 
+libxghost_la_OBJECTS =  g3flinb.lo g3flsvb.lo g3grinb.lo g3initb.lo \
+g3linkb.lo g3sysi.lo g1cls0.lo g1cls2.lo g1cls3.lo g1cls4.lo g1cls5.lo \
+g1cls7.lo g1initx11.lo g1marv.lo g1char.lo g1chsp.lo g1conc.lo \
+g1crv1.lo g1hrdwx11.lo g1mapp.lo g1movc.lo g1chio.lo g1cmlna.lo \
+g1line.lo g1spec.lo g1clip.lo g1filb.lo g1tranx11.lo g1disc.lo \
+g1shad.lo g1vectx11.lo g1erms.lo g4bacod.lo g4cocod.lo g4getb.lo \
+g4getc.lo g4getk.lo g4putb.lo g4putc.lo g4putk.lo lenstr.lo xgenieIF.lo
+FFLAGS = @FFLAGS@
+F77COMPILE = $(F77) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_FFLAGS) $(FFLAGS)
+LTF77COMPILE = $(LIBTOOL) --mode=compile $(F77) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_FFLAGS) $(FFLAGS)
+F77LD = $(F77)
+F77LINK = $(LIBTOOL) --mode=link $(F77LD) $(AM_FFLAGS) $(FFLAGS) $(LDFLAGS) -o $@
+CFLAGS = @CFLAGS@
+COMPILE = $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+LTCOMPILE = $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+CCLD = $(CC)
+LINK = $(LIBTOOL) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(LDFLAGS) -o $@
+DIST_COMMON =  Makefile.am Makefile.in
+
+
+DISTFILES = $(DIST_COMMON) $(SOURCES) $(HEADERS) $(TEXINFOS) $(EXTRA_DIST)
+
+TAR = gtar
+GZIP_ENV = --best
+SOURCES = $(libdecode_la_SOURCES) $(libghost_la_SOURCES) $(libgrid_la_SOURCES) $(libgrid_decode_la_SOURCES) $(libgrid_hpgl2_la_SOURCES) $(libgrid_postcl_la_SOURCES) $(libgrid_postsc_la_SOURCES) $(libgrid_trenc_la_SOURCES) $(libgrid_xghost_la_SOURCES) $(libhpgl2_la_SOURCES) $(libpostcl_la_SOURCES) $(libpostsc_la_SOURCES) $(libtrand_la_SOURCES) $(libtrenc_la_SOURCES) $(libxghost_la_SOURCES)
+OBJECTS = $(libdecode_la_OBJECTS) $(libghost_la_OBJECTS) $(libgrid_la_OBJECTS) $(libgrid_decode_la_OBJECTS) $(libgrid_hpgl2_la_OBJECTS) $(libgrid_postcl_la_OBJECTS) $(libgrid_postsc_la_OBJECTS) $(libgrid_trenc_la_OBJECTS) $(libgrid_xghost_la_OBJECTS) $(libhpgl2_la_OBJECTS) $(libpostcl_la_OBJECTS) $(libpostsc_la_OBJECTS) $(libtrand_la_OBJECTS) $(libtrenc_la_OBJECTS) $(libxghost_la_OBJECTS)
+
+all: all-redirect
+.SUFFIXES:
+.SUFFIXES: .F .S .c .f .lo .o .obj .s
+$(srcdir)/Makefile.in: Makefile.am $(top_srcdir)/configure.in $(ACLOCAL_M4) $(srcdir)/libdecode.mak $(srcdir)/libghost.mak $(srcdir)/libgrid.mak $(srcdir)/libgrid_decode.mak $(srcdir)/libgrid_hpgl2.mak $(srcdir)/libgrid_postcl.mak $(srcdir)/libgrid_postsc.mak $(srcdir)/libgrid_trenc.mak $(srcdir)/libgrid_xghost.mak $(srcdir)/libhpgl2.mak $(srcdir)/libpostcl.mak $(srcdir)/libpostsc.mak $(srcdir)/libtrand.mak $(srcdir)/libtrenc.mak $(srcdir)/libxghost.mak
+	cd $(top_srcdir) && $(AUTOMAKE) --foreign src/lib/Makefile
+
+Makefile: $(srcdir)/Makefile.in  $(top_builddir)/config.status
+	cd $(top_builddir) \
+	  && CONFIG_FILES=$(subdir)/$@ CONFIG_HEADERS= $(SHELL) ./config.status
+
+
+mostlyclean-libLTLIBRARIES:
+
+clean-libLTLIBRARIES:
+	-test -z "$(lib_LTLIBRARIES)" || rm -f $(lib_LTLIBRARIES)
+
+distclean-libLTLIBRARIES:
+
+maintainer-clean-libLTLIBRARIES:
+
+install-libLTLIBRARIES: $(lib_LTLIBRARIES)
+	@$(NORMAL_INSTALL)
+	$(mkinstalldirs) $(DESTDIR)$(libdir)
+	@list='$(lib_LTLIBRARIES)'; for p in $$list; do \
+	  if test -f $$p; then \
+	    echo "$(LIBTOOL)  --mode=install $(INSTALL) $$p $(DESTDIR)$(libdir)/$$p"; \
+	    $(LIBTOOL)  --mode=install $(INSTALL) $$p $(DESTDIR)$(libdir)/$$p; \
+	  else :; fi; \
+	done
+
+uninstall-libLTLIBRARIES:
+	@$(NORMAL_UNINSTALL)
+	list='$(lib_LTLIBRARIES)'; for p in $$list; do \
+	  $(LIBTOOL)  --mode=uninstall rm -f $(DESTDIR)$(libdir)/$$p; \
+	done
+
+.c.o:
+	$(COMPILE) -c $<
+
+# FIXME: We should only use cygpath when building on Windows,
+# and only if it is available.
+.c.obj:
+	$(COMPILE) -c `cygpath -w $<`
+
+.s.o:
+	$(COMPILE) -c $<
+
+.S.o:
+	$(COMPILE) -c $<
+
+mostlyclean-compile:
+	-rm -f *.o core *.core
+	-rm -f *.$(OBJEXT)
+
+clean-compile:
+
+distclean-compile:
+	-rm -f *.tab.c
+
+maintainer-clean-compile:
+
+.c.lo:
+	$(LIBTOOL) --mode=compile $(COMPILE) -c $<
+
+.s.lo:
+	$(LIBTOOL) --mode=compile $(COMPILE) -c $<
+
+.S.lo:
+	$(LIBTOOL) --mode=compile $(COMPILE) -c $<
+
+mostlyclean-libtool:
+	-rm -f *.lo
+
+clean-libtool:
+	-rm -rf .libs _libs
+
+distclean-libtool:
+
+maintainer-clean-libtool:
+
+libdecode.la: $(libdecode_la_OBJECTS) $(libdecode_la_DEPENDENCIES)
+	$(F77LINK) -rpath $(libdir) $(libdecode_la_LDFLAGS) $(libdecode_la_OBJECTS) $(libdecode_la_LIBADD) $(LIBS)
+
+libghost.la: $(libghost_la_OBJECTS) $(libghost_la_DEPENDENCIES)
+	$(F77LINK) -rpath $(libdir) $(libghost_la_LDFLAGS) $(libghost_la_OBJECTS) $(libghost_la_LIBADD) $(LIBS)
+
+libgrid.la: $(libgrid_la_OBJECTS) $(libgrid_la_DEPENDENCIES)
+	$(F77LINK) -rpath $(libdir) $(libgrid_la_LDFLAGS) $(libgrid_la_OBJECTS) $(libgrid_la_LIBADD) $(LIBS)
+
+libgrid_decode.la: $(libgrid_decode_la_OBJECTS) $(libgrid_decode_la_DEPENDENCIES)
+	$(F77LINK) -rpath $(libdir) $(libgrid_decode_la_LDFLAGS) $(libgrid_decode_la_OBJECTS) $(libgrid_decode_la_LIBADD) $(LIBS)
+
+libgrid_hpgl2.la: $(libgrid_hpgl2_la_OBJECTS) $(libgrid_hpgl2_la_DEPENDENCIES)
+	$(F77LINK) -rpath $(libdir) $(libgrid_hpgl2_la_LDFLAGS) $(libgrid_hpgl2_la_OBJECTS) $(libgrid_hpgl2_la_LIBADD) $(LIBS)
+
+libgrid_postcl.la: $(libgrid_postcl_la_OBJECTS) $(libgrid_postcl_la_DEPENDENCIES)
+	$(F77LINK) -rpath $(libdir) $(libgrid_postcl_la_LDFLAGS) $(libgrid_postcl_la_OBJECTS) $(libgrid_postcl_la_LIBADD) $(LIBS)
+
+libgrid_postsc.la: $(libgrid_postsc_la_OBJECTS) $(libgrid_postsc_la_DEPENDENCIES)
+	$(F77LINK) -rpath $(libdir) $(libgrid_postsc_la_LDFLAGS) $(libgrid_postsc_la_OBJECTS) $(libgrid_postsc_la_LIBADD) $(LIBS)
+
+libgrid_trenc.la: $(libgrid_trenc_la_OBJECTS) $(libgrid_trenc_la_DEPENDENCIES)
+	$(F77LINK) -rpath $(libdir) $(libgrid_trenc_la_LDFLAGS) $(libgrid_trenc_la_OBJECTS) $(libgrid_trenc_la_LIBADD) $(LIBS)
+
+libgrid_xghost.la: $(libgrid_xghost_la_OBJECTS) $(libgrid_xghost_la_DEPENDENCIES)
+	$(F77LINK) -rpath $(libdir) $(libgrid_xghost_la_LDFLAGS) $(libgrid_xghost_la_OBJECTS) $(libgrid_xghost_la_LIBADD) $(LIBS)
+
+libhpgl2.la: $(libhpgl2_la_OBJECTS) $(libhpgl2_la_DEPENDENCIES)
+	$(F77LINK) -rpath $(libdir) $(libhpgl2_la_LDFLAGS) $(libhpgl2_la_OBJECTS) $(libhpgl2_la_LIBADD) $(LIBS)
+
+libpostcl.la: $(libpostcl_la_OBJECTS) $(libpostcl_la_DEPENDENCIES)
+	$(F77LINK) -rpath $(libdir) $(libpostcl_la_LDFLAGS) $(libpostcl_la_OBJECTS) $(libpostcl_la_LIBADD) $(LIBS)
+
+libpostsc.la: $(libpostsc_la_OBJECTS) $(libpostsc_la_DEPENDENCIES)
+	$(F77LINK) -rpath $(libdir) $(libpostsc_la_LDFLAGS) $(libpostsc_la_OBJECTS) $(libpostsc_la_LIBADD) $(LIBS)
+
+libtrand.la: $(libtrand_la_OBJECTS) $(libtrand_la_DEPENDENCIES)
+	$(F77LINK) -rpath $(libdir) $(libtrand_la_LDFLAGS) $(libtrand_la_OBJECTS) $(libtrand_la_LIBADD) $(LIBS)
+
+libtrenc.la: $(libtrenc_la_OBJECTS) $(libtrenc_la_DEPENDENCIES)
+	$(F77LINK) -rpath $(libdir) $(libtrenc_la_LDFLAGS) $(libtrenc_la_OBJECTS) $(libtrenc_la_LIBADD) $(LIBS)
+
+libxghost.la: $(libxghost_la_OBJECTS) $(libxghost_la_DEPENDENCIES)
+	$(F77LINK) -rpath $(libdir) $(libxghost_la_LDFLAGS) $(libxghost_la_OBJECTS) $(libxghost_la_LIBADD) $(LIBS)
+.F.o:
+	$(F77COMPILE) -c $<
+.F.obj:
+	$(F77COMPILE) -c `cygpath -w $<`
+.F.lo:
+	$(LTF77COMPILE) -c $<
+.F.f:
+	$(F77COMPILE) -F $<
+.f.o:
+	$(F77COMPILE) -c $<
+.f.obj:
+	$(F77COMPILE) -c `cygpath -w $<`
+.f.lo:
+	$(LTF77COMPILE) -c $<
+
+tags: TAGS
+
+ID: $(HEADERS) $(SOURCES) $(LISP)
+	list='$(SOURCES) $(HEADERS)'; \
+	unique=`for i in $$list; do echo $$i; done | \
+	  awk '    { files[$$0] = 1; } \
+	       END { for (i in files) print i; }'`; \
+	here=`pwd` && cd $(srcdir) \
+	  && mkid -f$$here/ID $$unique $(LISP)
+
+TAGS:  $(HEADERS) $(SOURCES)  $(TAGS_DEPENDENCIES) $(LISP)
+	tags=; \
+	here=`pwd`; \
+	list='$(SOURCES) $(HEADERS)'; \
+	unique=`for i in $$list; do echo $$i; done | \
+	  awk '    { files[$$0] = 1; } \
+	       END { for (i in files) print i; }'`; \
+	test -z "$(ETAGS_ARGS)$$unique$(LISP)$$tags" \
+	  || (cd $(srcdir) && etags $(ETAGS_ARGS) $$tags  $$unique $(LISP) -o $$here/TAGS)
+
+mostlyclean-tags:
+
+clean-tags:
+
+distclean-tags:
+	-rm -f TAGS ID
+
+maintainer-clean-tags:
+
+distdir = $(top_builddir)/$(PACKAGE)-$(VERSION)/$(subdir)
+
+subdir = src/lib
+
+distdir: $(DISTFILES)
+	@for file in $(DISTFILES); do \
+	  d=$(srcdir); \
+	  if test -d $$d/$$file; then \
+	    cp -pr $$d/$$file $(distdir)/$$file; \
+	  else \
+	    test -f $(distdir)/$$file \
+	    || ln $$d/$$file $(distdir)/$$file 2> /dev/null \
+	    || cp -p $$d/$$file $(distdir)/$$file || :; \
+	  fi; \
+	done
+info-am:
+info: info-am
+dvi-am:
+dvi: dvi-am
+check-am: all-am
+check: check-am
+installcheck-am:
+installcheck: installcheck-am
+install-exec-am: install-libLTLIBRARIES
+install-exec: install-exec-am
+
+install-data-am:
+install-data: install-data-am
+
+install-am: all-am
+	@$(MAKE) $(AM_MAKEFLAGS) install-exec-am install-data-am
+install: install-am
+uninstall-am: uninstall-libLTLIBRARIES
+uninstall: uninstall-am
+all-am: Makefile $(LTLIBRARIES)
+all-redirect: all-am
+install-strip:
+	$(MAKE) $(AM_MAKEFLAGS) AM_INSTALL_PROGRAM_FLAGS=-s install
+installdirs:
+	$(mkinstalldirs)  $(DESTDIR)$(libdir)
+
+
+mostlyclean-generic:
+
+clean-generic:
+
+distclean-generic:
+	-rm -f Makefile $(CONFIG_CLEAN_FILES)
+	-rm -f config.cache config.log stamp-h stamp-h[0-9]*
+
+maintainer-clean-generic:
+mostlyclean-am:  mostlyclean-libLTLIBRARIES mostlyclean-compile \
+		mostlyclean-libtool mostlyclean-tags \
+		mostlyclean-generic
+
+mostlyclean: mostlyclean-am
+
+clean-am:  clean-libLTLIBRARIES clean-compile clean-libtool clean-tags \
+		clean-generic mostlyclean-am
+
+clean: clean-am
+
+distclean-am:  distclean-libLTLIBRARIES distclean-compile \
+		distclean-libtool distclean-tags distclean-generic \
+		clean-am
+	-rm -f libtool
+
+distclean: distclean-am
+
+maintainer-clean-am:  maintainer-clean-libLTLIBRARIES \
+		maintainer-clean-compile maintainer-clean-libtool \
+		maintainer-clean-tags maintainer-clean-generic \
+		distclean-am
+	@echo "This command is intended for maintainers to use;"
+	@echo "it deletes files that may require special tools to rebuild."
+
+maintainer-clean: maintainer-clean-am
+
+.PHONY: mostlyclean-libLTLIBRARIES distclean-libLTLIBRARIES \
+clean-libLTLIBRARIES maintainer-clean-libLTLIBRARIES \
+uninstall-libLTLIBRARIES install-libLTLIBRARIES mostlyclean-compile \
+distclean-compile clean-compile maintainer-clean-compile \
+mostlyclean-libtool distclean-libtool clean-libtool \
+maintainer-clean-libtool tags mostlyclean-tags distclean-tags \
+clean-tags maintainer-clean-tags distdir info-am info dvi-am dvi check \
+check-am installcheck-am installcheck install-exec-am install-exec \
+install-data-am install-data install-am install uninstall-am uninstall \
+all-redirect all-am all installdirs mostlyclean-generic \
+distclean-generic clean-generic maintainer-clean-generic clean \
+mostlyclean distclean maintainer-clean
+
+
+xgenieIF.o: xgenieIF.c xgenie.h Opcodes.h
+
+# Tell versions [3.59,3.63) of GNU make to not export all variables.
+# Otherwise a system limit (for SysV at least) may be exceeded.
+.NOEXPORT:

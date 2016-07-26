@@ -1,0 +1,31 @@
+      SUBROUTINE AXORIG(ORIGX,ORIGY)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. ( 240)   VERSION (A7.1)    11:FEB:85
+C          ------------------------------------------------
+C
+C          THIS SETS THE POSITION OF THE AXIS ORIGIN.
+C
+C
+C          THE ARGUMENTS ARE AS FOLLOWS:
+C
+C          <ORIGX>  IS THE X-COORDINATE OF THE AXIS ORIGIN,
+C          <ORIGY>  IS THE Y-COORDINATE OF THE AXIS ORIGIN.
+C
+C
+      COMMON /T0APOS/ AXPOSX,AXPOSY
+      COMMON /T0TRAC/ IPRINT
+      COMMON /T0TRAR/ RTRAC1,RTRAC2,RTRAC3,RTRAC4
+C
+C
+      CALL G3INIT(2)
+C
+      RTRAC1= ORIGX
+      RTRAC2= ORIGY
+      IF (IPRINT.EQ.1) CALL G0MESG(156,2)
+C
+      AXPOSX= ORIGY
+      AXPOSY= ORIGX
+C
+      RETURN
+      END

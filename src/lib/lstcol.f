@@ -1,0 +1,35 @@
+      SUBROUTINE LSTCOL(NCOLRS,LSTLEN)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. (  68)   VERSION (A8.2)    02:JUN:87
+C          ------------------------------------------------
+C
+C          THIS DEFINES THE CURRENT COLOUR LIST.
+C
+C
+C          THE ARGUMENTS ARE AS FOLLOWS:
+C
+C          [NCOLRS] IS AN ARRAY OF COLOUR NUMBERS,
+C          <LSTLEN> IS THE SIZE OF THE ARRAY.
+C
+C
+      INTEGER NCOLRS(100)
+C
+      COMMON /T0KLST/ LSTCL0(100),LENLST
+      COMMON /T0TRAC/ IPRINT
+C
+C
+      CALL G3INIT(2)
+      IF (IPRINT.EQ.1) CALL G0MESG(24,0)
+C
+      LENLST= LSTLEN
+      IF (LENLST.LE.0)   RETURN
+      IF (LENLST.GT.100) LENLST= 100
+C
+      DO 100 ISAVE= 1,LENLST
+        LSTCL0(ISAVE)= NCOLRS(ISAVE)
+        IF (IABS(NCOLRS(ISAVE)).GT.255) LSTCL0(ISAVE)= 0
+  100 CONTINUE
+C
+      RETURN
+      END

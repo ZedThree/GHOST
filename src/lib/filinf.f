@@ -1,0 +1,40 @@
+      SUBROUTINE FILINF(INFFIL)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. ( 304)   VERSION (A7.7)    11:FEB:85
+C                         === FORTRAN-77 ===
+C          ------------------------------------------------
+C
+C          THIS STORES INFORMATION IN A NEW FILE.
+C
+C
+      LOGICAL   BLANK
+      CHARACTER INFFIL*(*)
+C
+      COMMON /T2INFO/ INFOFO(32),INFOPO(32)
+      COMMON /T2INLO/ LNFOFO,LNFOPO
+      COMMON /T3MACH/ NMCHI,NBITMC
+      COMMON /T3SPAC/ ISPACE(1)
+C
+C
+      CALL G3INIT(2)
+C
+      LNFOFO= LEN(INFFIL)
+      IF (LNFOFO.GT.128) LNFOFO= 128
+C
+      LIMIT= NMCHI*32
+      BLANK= .TRUE.
+      ISPAC= 0
+      CALL G4GETK(ISPACE,NMCHI,NBITMC,NMCHI,ISPAC)
+C
+      DO 100 ISET= 1,LIMIT
+        NCHAR= ISPAC
+        IF (ISET.LE.LNFOFO) NCHAR= ICHAR(INFFIL(ISET:ISET))
+        IF (NCHAR.NE.ISPAC) BLANK= .FALSE.
+        CALL G4PUTK(INFOFO,ISET,NBITMC,NMCHI,NCHAR)
+  100 CONTINUE
+C
+      IF (BLANK) LNFOFO= 0
+C
+      RETURN
+      END

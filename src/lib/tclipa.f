@@ -1,0 +1,40 @@
+      SUBROUTINE TCLIPA(IENABL)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. (  43)   VERSION (A7.1)    11:FEB:85
+C          ------------------------------------------------
+C
+C          THIS ENABLES/DISABLES TRANSFORMATION OF THE CLIPPING AREAS.
+C
+C
+C          THE ARGUMENT IS AS FOLLOWS:
+C
+C          <IENABL> DETERMINES THE ACTION:
+C                   = 0, WINDOW AND MASK ARE NOT TRANSFORMED,
+C                   = 1, WINDOW AND MASK ARE TRANSFORMED IN
+C                        THE SAME WAY AS THE CURRENT PICTURE.
+C
+C
+      REAL    RDATA(1)
+      INTEGER IDATA(1)
+      LOGICAL SHIFT0
+C
+      COMMON /T0TRAC/ IPRINT
+      COMMON /T0TRST/ SHIFT0,MTRAN0,KLIPM0
+      COMMON /T0TRAI/ ITRAC1,ITRAC2,ITRAC3,ITRAC4
+C
+      DATA RDATA /0.0/
+C
+C
+      CALL G3INIT(2)
+C
+      ITRAC1= IENABL
+      IF (IPRINT.EQ.1) CALL G0MESG(144,5)
+C
+      KLIPM0= IABS(IENABL)
+      IF (KLIPM0.GT.1) KLIPM0= 0
+      IDATA(1)= KLIPM0
+      CALL G3LINK(7,16,-1,IDATA,RDATA)
+C
+      RETURN
+      END

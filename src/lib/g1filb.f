@@ -1,0 +1,214 @@
+      SUBROUTINE G1FILB(IX1,IY1,IX2,IY2)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. (1025)   VERSION (A8.7)    01:NOV:91
+C          ------------------------------------------------
+C
+C          THIS ROUTINE FILLS THE CURRENT BUFFER WITH PAIRED VALUES
+C          ACCORDING TO THE SUPPLIED ARGUMENTS (WHICH ARE EITHER
+C          LINE START AND STOP POINTS OR FUNCTION CODES PLUS DATA).
+C
+C
+C          IF <IX2> >= 0, THE ARGUMENTS GIVE A VECTORED LINE FROM
+C          <IX1,IY1> TO <IX2,IY2>. THE END-POINT NEAREST TO THE
+C          CURRENT POSITION IS FOUND, AND IF THIS IS NOT THE SAME
+C          PLACE, A 'MOVE' IS INSERTED BEFORE THE LINE IS DRAWN.
+C
+C          IF <IX2> < 0, IT DENOTES A SPECIAL FUNCTION. IF <IY2> IS
+C          NEGATIVE, IT GIVES THE LENGTH (IN PAIRS) OF SUBSEQUENT
+C          FUNCTION DATA (GIVEN BY SUCCEEDING <IX2,IY2> VALUES).
+C          OTHERWISE, <IY2> PROVIDES A SINGLE DATA VALUE DIRECTLY.
+C          <IX2> GIVES THE FOLLOWING FUNCTIONS:
+C
+C          =  -1, MOVE TO <IX1,IY1> AND PLOT A POINT,
+C          =  -2, MOVE TO <IX1,IY1> AND DRAW CHAR. <IY2>,
+C          =  -3, ----------------------------------
+C          =   .
+C          =   .           -NOT YET DEFINED-
+C          =   .
+C          =   .    -RESERVED FOR FUTURE EXPANSION-
+C          =   .
+C          =   .
+C          = -10, ----------------------------------
+C          = -11, SET HARDWARE CHARACTER SIZE      <IY2>,
+C          = -12, SET HARDWARE CHARACTER ANGLE     <IY2>,
+C          = -13, SET HARDWARE CHARACTER ITALIC    <IY2>,
+C          = -14, SET HARDWARE CHARACTER OBLATE    <IY2>,
+C          = -15, SET HARDWARE LINE TYPE           <IY2>,
+C          = -16, SET HARDWARE LINE INTENSITY      <IY2>,
+C          = -17, SET COLOUR NUMBER                <IY2>,
+C          = -18, FILL POLYGON                     <IY2>,
+C          = -19, SET DEVICE RESOLUTION            <IY2>,
+C          = -20, BEGIN FILLED-AREA BOUNDARY       <IDATA>,
+C          = -21, SET PLOT ORIENTATION             <IY2>,
+C          = -22, SET PEN VELOCITY                 <IY2>,
+C          = -23, ----------------------------------
+C          =   .
+C          =   .           -NOT YET DEFINED-
+C          =   .
+C          =   .    -RESERVED FOR FUTURE EXPANSION-
+C          =   .
+C          =   .
+C          = -39, ----------------------------------
+C          = -40, PASS DATA DIRECTLY TO THE DEVICE <IDATA>,
+C          = -41, SET A COLOUR-TABLE ENTRY         <IDATA>,
+C          = -42, DEFINE HARDWARE LINE TYPE        <IDATA>,
+C          = -43, SET BACKGROUND COLOUR            <IDATA>,
+C          = -44, SET CROSS-HATCHING PARAMETERS    <IDATA>,
+C          = -45, ----------------------------------
+C          =   .
+C          =   .           -NOT YET DEFINED-
+C          =   .
+C          =   .    -RESERVED FOR FUTURE EXPANSION-
+C          =   .
+C          =   .
+C          = -80, ----------------------------------
+C          = -81, ERASE THE DEVICE WITH PROMPT/WAIT,
+C          = -82, ERASE THE DEVICE WITHOUT PROMPT/WAIT,
+C          = -83, DISPLAY THE GRAPHICS CURSOR,
+C          = -84, CLEAR THE SYSTEM BUFFER,
+C          = -85, END GRAPHICAL OUTPUT,
+C          = -86, OPEN  DEVICE CHANNEL             <IY2>,
+C          = -87, CLOSE DEVICE CHANNEL             <IY2>,
+C          = -88, READ LOCATOR FROM TABLET.
+C
+C          IN THE CASE OF SPECIAL FUNCTIONS, THE <IX2> AND <IY2>
+C          VALUES ARE SIMPLY PUT IN THE BUFFER. ONLY THE SYSTEM
+C          BUFFER IS USED FOR FUNCTIONS WITH <IX2> <= -80, AND IT
+C          IS ALSO CLEARED WHEN ONE OF THESE FUNCTIONS IS FOUND.
+C
+C
+      LOGICAL DONE,SYFUNC
+      LOGICAL FULL,ERRON
+C
+      COMMON /T1BEPT/ IXFINI,IYFINI
+      COMMON /T1BFSV/ LENFLB
+      COMMON /T1BUFN/ KBUFR1
+      COMMON /T1BUFS/ MSYSTB(200),LIMSYS,ISYSTP
+      COMMON /T1BUFU/ MUSERB(3200),LENTHB,KINDEX,KLIMIT,KAREA,LIMARE,
+     &                IAREAP(16),ISTRTA(16),KAREAS(16),NAREAS(16),
+     &                INEXTA(32),FULL
+      COMMON /T3ERRS/ ERRON,NUMERR
+C
+C
+C          IF THE CURRENT BUFFER IS A NON-SYSTEM ONE
+C          AND THE AREAS ARE ALL USED, NOTHING IS DONE.
+C
+      IF (FULL.AND.KBUFR1.NE.0.AND.IX2.GT.-81) RETURN
+C
+      IXNEAR= IX1
+      IYNEAR= IY1
+      IXFAR=  IX2
+      IYFAR=  IY2
+      SYFUNC= .FALSE.
+C
+C          IF <LENFLB> HAS BEEN SET, SUCCESSIVE VALUES <IX2>
+C          AND <IY2> ARE PUT IN THE BUFFER UNTIL ALL ARE DONE.
+C          IF <IX2> >= 0, A DRAWN VECTOR IS REQUIRED.
+C          IF <IX2> < 0, IT IS A SPECIAL FUNCTION. IF
+C          <IX2> > -11, A MOVE TO <IX1,IY1> HAS TO BE DONE
+C          FIRST, SO THE CURRENT POSITION HAS TO BE UPDATED.
+C          WHEN ERASE ETC. ARE CALLED, THE END POSITION IS
+C          RESET SO AS TO GIVE A 'MOVE' COMMAND AFTERWARDS.
+C
+      IF (LENFLB.GT.0) GO TO 4
+C
+      LENFLB= 0
+      IF (IXFAR.GE.0) GO TO 2
+C
+      IF (IXFAR.LE.-11) GO TO 1
+      IXFINI= IXNEAR
+      IYFINI= IYNEAR
+      GO TO 3
+C
+    1 IF (IXFAR.LE.-40.AND.IYFAR.LT.0) LENFLB= -IYFAR+1
+      IF (IXFAR.GT.-81) GO TO 4
+C
+      SYFUNC= .TRUE.
+      IXFINI= -1
+      IYFINI= -1
+C
+C          THE SYSTEM BUFFER IS RE-SELECTED BY AN 'ERASE'.
+C
+      IF (KBUFR1.LE.0)  GO TO 4
+      IF (IXFAR.LT.-82) GO TO 4
+C
+      KAREAS(KBUFR1)= KAREA
+      IAREAP(KBUFR1)= KINDEX
+      KBUFR1= 0
+      GO TO 4
+C
+C          A MOVE INSTRUCTION IS ENTERED IN THE BUFFER
+C          IF THE START POINT IS NOT THE SAME AS THE
+C          FORMER END POINT, FOLLOWED IN EITHER CASE
+C          BY THE COORDINATES OF THE END POINT.
+C
+    2 IXTEST= IXFINI
+      IYTEST= IYFINI
+      IXFINI= IXFAR
+      IYFINI= IYFAR
+      IF (IXNEAR.EQ.IXTEST.AND.IYNEAR.EQ.IYTEST) GO TO 4
+C
+    3 DONE= .FALSE.
+      IXVALU= IXNEAR
+      IYVALU= -IYNEAR-1
+      GO TO 5
+C
+    4 DONE= .TRUE.
+        IXVALU= IXFAR
+        IYVALU= IYFAR
+        IF (SYFUNC) GO TO 6
+C
+C          THIS SECTION LOADS THE CURRENT BUFFER WITH
+C          THE GIVEN VALUES. IF THE BUFFER IS THE SYSTEM
+C          ONE, IT IS EMPTIED WHEN FULL, THEN REFILLED.
+C          IN THE CASE OF ANY NON-SYSTEM BUFFER, WHEN
+C          THE CURRENT AREA IS FULL ANOTHER IS SOUGHT
+C          AND CHAINED ONTO THE AREA LIST OF THAT BUFFER.
+C          IF THERE ARE NO MORE FREE AREAS, AN ERROR
+C          MESSAGE IS GENERATED AND THE FLAG IS SET.
+C
+    5   IF (KBUFR1.NE.0) GO TO 7
+    6   ISYSTP= ISYSTP+2
+        MSYSTB(ISYSTP-1)= IXVALU
+        MSYSTB(ISYSTP)= IYVALU
+        IF (ISYSTP.LT.LIMSYS.AND..NOT.SYFUNC) GO TO 9
+        CALL G1TRAN(MSYSTB,1,ISYSTP)
+        ISYSTP= 0
+        GO TO 9
+C
+    7   KINDEX= KINDEX+2
+        MUSERB(KINDEX-1)= IXVALU
+        MUSERB(KINDEX)= IYVALU
+        IF (KINDEX.LT.KLIMIT) GO TO 9
+C
+        DO 100 ISERCH= 1,32
+          IF (INEXTA(ISERCH).EQ.0) GO TO 8
+  100   CONTINUE
+C
+        FULL= .TRUE.
+        GO TO 901
+C
+    8   INEXTA(KAREA)= ISERCH
+        KAREA= ISERCH
+        INEXTA(KAREA)= -1
+        KAREAS(KBUFR1)= KAREA
+        NAREAS(KBUFR1)= NAREAS(KBUFR1)+1
+        KINDEX= LIMARE*(KAREA-1)
+        KLIMIT= LIMARE*KAREA
+    9   IF (.NOT.DONE) GO TO 4
+C
+      IF (LENFLB.GT.0) LENFLB= LENFLB-1
+      RETURN
+C
+  901 NUMERR= 1003
+      IF (.NOT.ERRON) RETURN
+C
+      ISYSTP= ISYSTP+2
+      MSYSTB(ISYSTP-1)= -84
+      MSYSTB(ISYSTP)= 0
+      CALL G1TRAN(MSYSTB,1,ISYSTP)
+      ISYSTP= 0
+      CALL G1ERMS
+      RETURN
+      END

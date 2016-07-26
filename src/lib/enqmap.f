@@ -1,0 +1,39 @@
+      SUBROUTINE ENQMAP(IPARAM,RPARAM)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. ( 252)   VERSION (A7.3)    11:FEB:85
+C          ------------------------------------------------
+C
+C          THIS RETURNS THE CURRENT MAPPING PARAMETERS.
+C
+C
+      REAL    RPARAM(12)
+      INTEGER IPARAM(3)
+C
+C
+      COMMON /T0MACT/ MRKMAP,MRKWIN
+      COMMON /T0MAPA/ X1MAPV,X2MAPV,Y1MAPV,Y2MAPV
+      COMMON /T0MAPD/ X1MAPD,X2MAPD,Y1MAPD,Y2MAPD
+      COMMON /T0MAPT/ MAPNO0
+      COMMON /T0WNDO/ X1WND0,X2WND0,Y1WND0,Y2WND0
+C
+C
+      IPARAM(1)= MAPNO0
+      IPARAM(2)= MRKMAP
+      IPARAM(3)= MRKWIN
+C
+      RPARAM( 1)= X1MAPV
+      RPARAM( 2)= X2MAPV
+      RPARAM( 3)= Y1MAPV
+      RPARAM( 4)= Y2MAPV
+      RPARAM( 5)= X1WND0
+      RPARAM( 6)= X2WND0
+      RPARAM( 7)= Y1WND0
+      RPARAM( 8)= Y2WND0
+      RPARAM( 9)= X1MAPD
+      RPARAM(10)= X2MAPD
+      RPARAM(11)= Y1MAPD
+      RPARAM(12)= Y2MAPD
+C
+      RETURN
+      END

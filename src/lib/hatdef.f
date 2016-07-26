@@ -1,0 +1,44 @@
+      SUBROUTINE HATDEF(NUMPAT)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. ( 332)   VERSION (A8.1)    12:OCT:95
+C          ------------------------------------------------
+C
+C          THIS CONTROLS WHICH PATTERN NUMBER IS TO BE DEFINED.
+C
+C
+C          THE ARGUMENTS ARE AS FOLLOWS:
+C
+C          <NUMPAT>, THE NUMBER OF THE PATTERN TO BE DEFINED.
+C
+C
+      REAL    RDATA(1)
+      INTEGER IDATA(1)
+      LOGICAL ERRON
+C
+      COMMON /T0HNUM/ IHATN0
+      COMMON /T0TRAC/ IPRINT
+      COMMON /T0TRAI/ ITRAC1,ITRAC2,ITRAC3,ITRAC4
+      COMMON /T3ERRS/ ERRON,NUMERR
+C
+      DATA RDATA /0.0/
+C
+C
+      CALL G3INIT(2)
+      ITRAC1= NUMPAT
+      IF (IPRINT.EQ.1) CALL G0MESG(179,5)
+C
+      NUMPT= IABS(NUMPAT)
+      IF (NUMPT.GT.255) RETURN
+      IF (NUMPT.LT.65) GO TO 901
+C
+      IHATN0= NUMPT
+      IDATA(1)= IHATN0
+      CALL G3LINK(5,12,-1,IDATA,RDATA)
+C
+      RETURN
+C
+  901 NUMERR= 61
+      IF (ERRON) CALL G0ERMS
+      RETURN
+      END

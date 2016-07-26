@@ -1,0 +1,36 @@
+      SUBROUTINE PIELBM(METHOD)
+C
+C          ------------------------------------------------
+C          ROUTINE NO. (  88)   VERSION (A7.1)    11:FEB:85
+C          ------------------------------------------------
+C
+C          THIS SETS THE PIECHART LABELLING METHOD WHICH IS USED.
+C
+C
+C          <METHOD> = 1 FOR INTERNAL LABELLING.
+C                   = 2 FOR EXTERNAL LABELLING.
+C
+C
+      LOGICAL ERRON
+C
+      COMMON /T0PILM/ MPIELB
+      COMMON /T0TRAC/ IPRINT
+      COMMON /T0TRAI/ ITRAC1,ITRAC2,ITRAC3,ITRAC4
+      COMMON /T3ERRS/ ERRON,NUMERR
+C
+C
+      CALL G3INIT(2)
+C
+      ITRAC1= METHOD
+      IF (IPRINT.EQ.1) CALL G0MESG(157,5)
+C
+      IF (METHOD.LT.1.OR.METHOD.GT.2) GO TO 901
+C
+      MPIELB= METHOD
+      RETURN
+C
+  901 NUMERR= 24
+      IF (ERRON) CALL G0ERMS
+C
+      RETURN
+      END

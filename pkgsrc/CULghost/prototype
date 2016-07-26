@@ -1,0 +1,89 @@
+i pkginfo
+i copyright
+i depend
+d none lib 0755 root bin
+s none lib/libghost.so=libghost.so.0.0.0
+f none lib/libdecode.so.0.0.0 0755 bin bin
+s none lib/libdecode.so.0=libdecode.so.0.0.0
+s none lib/libdecode.so=libdecode.so.0.0.0
+f none lib/libghost.so.0.0.0 0755 bin bin
+s none lib/libghost.so.0=libghost.so.0.0.0
+s none lib/libgrid.so=libgrid.so.0.0.0
+f none lib/libgrid.so.0.0.0 0755 bin bin
+s none lib/libgrid.so.0=libgrid.so.0.0.0
+f none lib/libgrid_decode.so.0.0.0 0755 bin bin
+s none lib/libgrid_decode.so.0=libgrid_decode.so.0.0.0
+s none lib/libgrid_decode.so=libgrid_decode.so.0.0.0
+f none lib/libgrid_hpgl2.so.0.0.0 0755 bin bin
+s none lib/libgrid_hpgl2.so.0=libgrid_hpgl2.so.0.0.0
+s none lib/libgrid_hpgl2.so=libgrid_hpgl2.so.0.0.0
+s none lib/libhpgl2.so=libhpgl2.so.0.0.0
+f none lib/libgrid_postcl.so.0.0.0 0755 bin bin
+s none lib/libgrid_postcl.so.0=libgrid_postcl.so.0.0.0
+s none lib/libgrid_postcl.so=libgrid_postcl.so.0.0.0
+f none lib/libgrid_postsc.so.0.0.0 0755 bin bin
+s none lib/libgrid_postsc.so.0=libgrid_postsc.so.0.0.0
+s none lib/libgrid_postsc.so=libgrid_postsc.so.0.0.0
+f none lib/libgrid_trenc.so.0.0.0 0755 bin bin
+s none lib/libgrid_trenc.so.0=libgrid_trenc.so.0.0.0
+s none lib/libgrid_trenc.so=libgrid_trenc.so.0.0.0
+f none lib/libgrid_xghost.so.0.0.0 0755 bin bin
+s none lib/libgrid_xghost.so.0=libgrid_xghost.so.0.0.0
+s none lib/libgrid_xghost.so=libgrid_xghost.so.0.0.0
+f none lib/libhpgl2.so.0.0.0 0755 bin bin
+s none lib/libhpgl2.so.0=libhpgl2.so.0.0.0
+s none lib/libtrand.so=libtrand.so.0.0.0
+f none lib/libpostcl.so.0.0.0 0755 bin bin
+s none lib/libpostcl.so.0=libpostcl.so.0.0.0
+s none lib/libpostcl.so=libpostcl.so.0.0.0
+f none lib/libpostsc.so.0.0.0 0755 bin bin
+s none lib/libpostsc.so.0=libpostsc.so.0.0.0
+s none lib/libpostsc.so=libpostsc.so.0.0.0
+f none lib/libtrand.so.0.0.0 0755 bin bin
+s none lib/libtrand.so.0=libtrand.so.0.0.0
+s none lib/libtrenc.so=libtrenc.so.0.0.0
+f none lib/libtrenc.so.0.0.0 0755 bin bin
+s none lib/libtrenc.so.0=libtrenc.so.0.0.0
+f none lib/libxghost.so.0.0.0 0755 bin bin
+s none lib/libxghost.so.0=libxghost.so.0.0.0
+s none lib/libxghost.so=libxghost.so.0.0.0
+d none lib/fonts 0755 root bin
+f none lib/fonts/GHOST80FONT11 0644 bin bin
+f none lib/fonts/GHOST80FONT12 0644 bin bin
+f none lib/fonts/GHOST80FONT13 0644 bin bin
+f none lib/fonts/GHOST80FONT14 0644 bin bin
+f none lib/fonts/GHOST80FONT15 0644 bin bin
+f none lib/fonts/GHOST80FONT16 0644 bin bin
+f none lib/fonts/GHOST80FONT17 0644 bin bin
+f none lib/fonts/GHOST80FONT18 0644 bin bin
+f none lib/fonts/GHOST80FONT19 0644 bin bin
+f none lib/fonts/GHOST80FONT20 0644 bin bin
+f none lib/fonts/GHOST80FONT21 0644 bin bin
+f none lib/fonts/GHOST80FONT22 0644 bin bin
+f none lib/fonts/GHOST80FONT23 0644 bin bin
+f none lib/fonts/GHOST80FONT24 0644 bin bin
+f none lib/fonts/GHOST80FONT25 0644 bin bin
+f none lib/fonts/GHOST80FNT101 0644 bin bin
+f none lib/fonts/GHOST80FNT102 0644 bin bin
+f none lib/fonts/GHOST80FNT103 0644 bin bin
+f none lib/fonts/GHOST80FNT104 0644 bin bin
+f none lib/fonts/GHOST80FNT105 0644 bin bin
+f none lib/fonts/GHOST80FNT106 0644 bin bin
+f none lib/fonts/GHOST80FNT107 0644 bin bin
+f none lib/fonts/GHOST80FNT108 0644 bin bin
+f none lib/fonts/GHOST80FNT109 0644 bin bin
+f none lib/fonts/GHOST80FNT110 0644 bin bin
+f none lib/fonts/GHOST80FNT111 0644 bin bin
+f none lib/fonts/GHOST80FNT112 0644 bin bin
+f none lib/fonts/GHOST80FNT113 0644 bin bin
+d none libexec 0755 root bin
+f none libexec/xgenie 0755 bin bin
+f none libexec/xgenie.tcl 0755 bin bin
+d none bin 0755 root bin
+f none bin/decode 0755 bin bin
+f none bin/hpgl2 0755 bin bin
+f none bin/postcl 0755 bin bin
+f none bin/postsc 0755 bin bin
+f none bin/trand 0755 bin bin
+f none bin/trenc 0755 bin bin
+f none bin/xghost 0755 bin bin
