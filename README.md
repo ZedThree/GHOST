@@ -1,8 +1,16 @@
 Ghost 80
 ========
 
+Ghost 80 is a Fortran package for making graphs. Originally written at
+UKAEA in the 1980s, it is now essentially abandonware. Use at your own
+risk. The licence is now MIT.
+
 Ghost 80 is packaged following the GNU guidelines using
 automake and autoconf.
+
+## Installation
+
+Ghost 80 needs a Fortran 77 compiler, and the X11 libraries.
 
 Generic install instructions are in the file INSTALL.
 
