@@ -19,11 +19,12 @@ Instructions for Windows NT/2000 are in READMENT.txt.
 To get started quickly unpack the distribution and do
 the following from the top level directory:
 
-$ ./configure
+```bash
+$ mkdir build && cd build
+$ ../configure --prefix=<install directory>
 $ make
-$ su
-# make install
-
+$ make install
+```
 
 Notes:
 
