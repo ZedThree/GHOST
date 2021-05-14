@@ -676,6 +676,9 @@ target_compile_definitions(grid_xghost PRIVATE
   LITTLE_ENDIAN
 )
 
+add_library(ghost::ghost ALIAS ghost)
+target_link_libraries(ghost PUBLIC grid_xghost)
+
 set(GHOST_TARGETS
   grid
   ghost
@@ -692,6 +695,4 @@ install(TARGETS ${GHOST_TARGETS}
   EXPORT ghostTargets
   LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
   ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
-  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
-  INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
   )

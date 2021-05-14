@@ -22,6 +22,11 @@ write_basic_package_version_file(
   VERSION ${PACKAGE_VERSION}
   COMPATIBILITY SameMajorVersion
   )
+install(FILES
+  "${CMAKE_CURRENT_BINARY_DIR}/ghostConfig.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/ghostConfigVersion.cmake"
+  DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/ghost"
+  )
 
 install(EXPORT ghostTargets
   FILE ghostTargets.cmake
