@@ -1,28 +1,3 @@
-add_library(decode)
-target_sources(decode PRIVATE
-  g3flind.f
-  g3flsvb.f
-  g3grina.f
-  g3initb.f
-  g3linkd.f
-  g3sysi.f
-  g1clsnb.f
-  g1initde.f
-  g1hrdwde.f
-  g1cmlna.f
-  g1dviode.f
-  g1erms.f
-  g4bacod.f
-  g4cocod.f
-  g4getb.c
-  g4getc.c
-  g4getk.c
-  g4putb.c
-  g4putc.c
-  g4putk.c
-  lenstr.f
-  )
-
 add_library(grid)
 target_sources(grid PRIVATE
   g3flina.f
@@ -627,235 +602,14 @@ Opcodes.h
 xgenie.h
 )
 
-add_library(hpgl2)
-target_sources(hpgl2 PRIVATE
-g3flinb.f
-g3flsvb.f
-g3grina.f
-g3initb.f
-g3linkb.f
-g3sysi.f
-g1cls0.f
-g1cls2.f
-g1cls3.f
-g1cls4.f
-g1cls5.f
-g1cls7.f
-g1inith9.f
-g1marv.f
-g1char.f
-g1chsp.f
-g1conc.f
-g1crv1.f
-g1hrdwh9.f
-g1mapp.f
-g1movc.f
-g1chio.F
-g1cmlna.f
-g1line.f
-g1spec.f
-g1clip.f
-g1filb.f
-g1tranh9.f
-g1disc.f
-g1shad.f
-g1vecth1.f
-g1buffh4.f
-g1dviof.f
-g1erms.f
-g4bacod.f
-g4cocod.f
-g4getb.c
-g4getc.c
-g4getk.c
-g4putb.c
-g4putc.c
-g4putk.c
-lenstr.f
-)
-
-add_library(postcl)
-target_sources(postcl PRIVATE
-g3flinb.f
-g3flsvb.f
-g3grina.f
-g3initb.f
-g3linkb.f
-g3sysi.f
-g1cls0.f
-g1cls2.f
-g1cls3.f
-g1cls4.f
-g1cls5.f
-g1cls7.f
-g1initapc.f
-g1marv.f
-g1char.f
-g1chsp.f
-g1conc.f
-g1crv1.f
-g1hrdwapc.f
-g1mapp.f
-g1movc.f
-g1chio.F
-g1cmlna.f
-g1line.f
-g1spec.f
-g1clip.f
-g1filb.f
-g1tranapc.f
-g1disc.f
-g1shad.f
-g1vectap.f
-g1buffa.f
-g1dvioap.f
-g1erms.f
-g4bacod.f
-g4cocod.f
-g4getb.c
-g4getc.c
-g4getk.c
-g4putb.c
-g4putc.c
-g4putk.c
-lenstr.f
-)
-
-add_library(postsc)
-target_sources(postsc PRIVATE
-g3flinb.f
-g3flsvb.f
-g3grina.f
-g3initb.f
-g3linkb.f
-g3sysi.f
-g1cls0.f
-g1cls2.f
-g1cls3.f
-g1cls4.f
-g1cls5.f
-g1cls7.f
-g1initap.f
-g1marv.f
-g1char.f
-g1chsp.f
-g1conc.f
-g1crv1.f
-g1hrdwap.f
-g1mapp.f
-g1movc.f
-g1chio.F
-g1cmlna.f
-g1line.f
-g1spec.f
-g1clip.f
-g1filb.f
-g1tranap.f
-g1disc.f
-g1shad.f
-g1vectap.f
-g1buffa.f
-g1dvioap.f
-g1erms.f
-g4bacod.f
-g4cocod.f
-g4getb.c
-g4getc.c
-g4getk.c
-g4putb.c
-g4putc.c
-g4putk.c
-lenstr.f
-)
-
-add_library(trand)
-target_sources(trand PRIVATE
+add_library(grid_trand)
+target_sources(grid_trand PRIVATE
 enqrun.f
 g5lodi.f
 g5newfa.f
 g5trinb.f
 g5erms.f
 lenstr.f
-)
-
-add_library(trenc)
-target_sources(trenc PRIVATE
-g3flind.f
-g3flsvb.f
-g3grina.f
-g3initb.f
-g3linkd.f
-g3sysi.f
-g1clsna.f
-g1inittg.f
-g1hrdwtg.f
-g1cmlna.f
-g1trantg.f
-g1dviotg.f
-g1erms.f
-g4bacod.f
-g4cocod.f
-g4getb.c
-g4getc.c
-g4getk.c
-g4putb.c
-g4putc.c
-g4putk.c
-)
-
-add_library(xghost)
-target_sources(xghost PRIVATE
-g3flsvb.f
-g3grinb.f
-g3initb.f
-g3linkb.f
-g3sysi.f
-g1cls0.f
-g1cls2.f
-g1cls3.f
-g1cls4.f
-g1cls5.f
-g1cls7.f
-g1initx11.f
-g1marv.f
-g1char.f
-g1chsp.f
-g1conc.f
-g1crv1.f
-g1hrdwx11.f
-g1mapp.f
-g1movc.f
-g1chio.F
-g1cmlna.f
-g1line.f
-g1spec.f
-g1clip.f
-g1filb.f
-g1tranx11.f
-g1disc.f
-g1shad.f 
-g1vectx11.f 
-g1erms.f
-g4bacod.f
-g4cocod.f
-g4getb.c
-g4getc.c
-g4getk.c
-g4putb.c
-g4putc.c
-g4putk.c
-lenstr.f
-xgenieIF.c
-Opcodes.h
-xgenie.h
-)
-
-target_compile_definitions(decode PRIVATE
-  GHOST_RECL_UNIT=4
-  GHOST_LIBDIR="${CMAKE_INSTALL_LIBDIR}"
-  GHOST_LIBEXECDIR="${CMAKE_INSTALL_LIBEXECDIR}"
-  USEUNDERSCORE
-  LITTLE_ENDIAN
 )
 
 target_compile_definitions(grid PRIVATE
@@ -922,56 +676,7 @@ target_compile_definitions(grid_xghost PRIVATE
   LITTLE_ENDIAN
 )
 
-target_compile_definitions(hpgl2 PRIVATE
-  GHOST_RECL_UNIT=4
-  GHOST_LIBDIR="${CMAKE_INSTALL_LIBDIR}"
-  GHOST_LIBEXECDIR="${CMAKE_INSTALL_LIBEXECDIR}"
-  USEUNDERSCORE
-  LITTLE_ENDIAN
-)
-
-target_compile_definitions(postcl PRIVATE
-  GHOST_RECL_UNIT=4
-  GHOST_LIBDIR="${CMAKE_INSTALL_LIBDIR}"
-  GHOST_LIBEXECDIR="${CMAKE_INSTALL_LIBEXECDIR}"
-  USEUNDERSCORE
-  LITTLE_ENDIAN
-)
-
-target_compile_definitions(postsc PRIVATE
-  GHOST_RECL_UNIT=4
-  GHOST_LIBDIR="${CMAKE_INSTALL_LIBDIR}"
-  GHOST_LIBEXECDIR="${CMAKE_INSTALL_LIBEXECDIR}"
-  USEUNDERSCORE
-  LITTLE_ENDIAN
-)
-
-target_compile_definitions(trand PRIVATE
-  GHOST_RECL_UNIT=4
-  GHOST_LIBDIR="${CMAKE_INSTALL_LIBDIR}"
-  GHOST_LIBEXECDIR="${CMAKE_INSTALL_LIBEXECDIR}"
-  USEUNDERSCORE
-  LITTLE_ENDIAN
-)
-
-target_compile_definitions(trenc PRIVATE
-  GHOST_RECL_UNIT=4
-  GHOST_LIBDIR="${CMAKE_INSTALL_LIBDIR}"
-  GHOST_LIBEXECDIR="${CMAKE_INSTALL_LIBEXECDIR}"
-  USEUNDERSCORE
-  LITTLE_ENDIAN
-)
-
-target_compile_definitions(xghost PRIVATE
-  GHOST_RECL_UNIT=4
-  GHOST_LIBDIR="${CMAKE_INSTALL_LIBDIR}"
-  GHOST_LIBEXECDIR="${CMAKE_INSTALL_LIBEXECDIR}"
-  USEUNDERSCORE
-  LITTLE_ENDIAN
-)
-
 set(GHOST_TARGETS
-  decode
   grid
   ghost
   grid_decode
@@ -980,12 +685,7 @@ set(GHOST_TARGETS
   grid_postsc
   grid_trenc
   grid_xghost
-  hpgl2
-  postcl
-  postsc
-  trand
-  trenc
-  xghost
+  grid_trand
   )
 
 install(TARGETS ${GHOST_TARGETS}
