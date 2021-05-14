@@ -640,6 +640,18 @@ foreach(TARGET IN ITEMS ${GHOST_TARGETS})
     -ffixed-line-length-none >
     )
 endforeach()
+
+if (GHOST_ENABLE_DOUBLE)
+  foreach(TARGET IN ITEMS ${GHOST_TARGETS})
+    target_compile_options(${TARGET} PUBLIC
+      $<$<Fortran_COMPILER_ID:GNU>:
+      -fdefault-real-8 -fdefault-double-8 >
+      $<$<Fortran_COMPILER_ID:Intel>:
+      -r8 >
+      )
+  endforeach()
+endif()
+
 install(TARGETS ${GHOST_TARGETS}
   EXPORT ghostTargets
   LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"

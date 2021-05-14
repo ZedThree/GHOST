@@ -8,6 +8,8 @@ project(GHOST
 
 include(GNUInstallDirs)
 
+option(GHOST_ENABLE_DOUBLE "Promotes precisions of real and complex to double" ON)
+
 add_subdirectory(src/lib)
 add_subdirectory(src/libexec)
 add_subdirectory(src/bin)

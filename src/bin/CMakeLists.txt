@@ -27,6 +27,17 @@ set(GHOST_EXECUTABLE_TARGETS
   demosurf
   )
 
+if (GHOST_ENABLE_DOUBLE)
+  foreach(TARGET IN ITEMS ${GHOST_EXECUTABLE_TARGETS})
+    target_compile_options(${TARGET} PUBLIC
+      $<$<Fortran_COMPILER_ID:GNU>:
+      -fdefault-real-8 -fdefault-double-8 >
+      $<$<Fortran_COMPILER_ID:Intel>:
+      -r8 >
+      )
+  endforeach()
+endif()
+
 install(TARGETS ${GHOST_EXECUTABLE_TARGETS}
   EXPORT ghostExeTargets
   RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"

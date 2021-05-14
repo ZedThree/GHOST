@@ -18,6 +18,15 @@ target_compile_definitions(xgenie PRIVATE
   )
 target_include_directories(xgenie PRIVATE ../lib)
 
+if (GHOST_ENABLE_DOUBLE)
+  target_compile_options(xgenie PUBLIC
+    $<$<Fortran_COMPILER_ID:GNU>:
+      -fdefault-real-8 -fdefault-double-8 >
+    $<$<Fortran_COMPILER_ID:Intel>:
+      -r8 >
+    )
+endif()
+
 find_package(X11)
 target_link_libraries(xgenie PRIVATE X11::Xt X11::X11)
 
