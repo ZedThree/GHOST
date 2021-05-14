@@ -635,6 +635,10 @@ foreach(TARGET IN ITEMS ${GHOST_TARGETS})
     USEUNDERSCORE
     LITTLE_ENDIAN
     )
+  target_compile_options(${TARGET} PRIVATE
+    $<$<Fortran_COMPILER_ID:GNU>:
+    -ffixed-line-length-none >
+    )
 endforeach()
 install(TARGETS ${GHOST_TARGETS}
   EXPORT ghostTargets
