@@ -1,0 +1,997 @@
+add_library(decode)
+target_sources(decode PRIVATE
+  g3flind.f
+  g3flsvb.f
+  g3grina.f
+  g3initb.f
+  g3linkd.f
+  g3sysi.f
+  g1clsnb.f
+  g1initde.f
+  g1hrdwde.f
+  g1cmlna.f
+  g1dviode.f
+  g1erms.f
+  g4bacod.f
+  g4cocod.f
+  g4getb.c
+  g4getc.c
+  g4getk.c
+  g4putb.c
+  g4putc.c
+  g4putk.c
+  lenstr.f
+  )
+
+add_library(grid)
+target_sources(grid PRIVATE
+  g3flina.f
+  g3flsva.f
+  g3grina.f
+  g3inita.f
+  g3linka.f
+  g3sysi.f
+  g2buff.f
+  g2file.f
+  g2sysi.F
+  g2shutb.f
+  g2ermsa.f
+  g4bacod.f
+  g4cocod.f
+  g4getb.c
+  g4getc.c
+  g4getk.c
+  g4putb.c
+  g4putc.c
+  g4putk.c
+  )
+
+add_library(ghost)
+target_sources(ghost PRIVATE
+  g0maps.f
+  annotp.f
+  arc.f
+  arcell.f
+  axes.f
+  axessi.f
+  axexl.f
+  axexli.f
+  axexyl.f
+  axeyl.f
+  axeyli.f
+  axints.f
+  axnota.f
+  axorig.f
+  baccol.f
+  bar3d.f
+  barcht.f
+  barflg.f
+  bartyp.f
+  border.f
+  br3ang.f
+  br3bas.f
+  br3col.f
+  br3lbl.f
+  br3rat.f
+  broken.f
+  cdefin.f
+  channl.f
+  circle.f
+  clrbuf.f
+  conlbl.f
+  conota.f
+  contia.f
+  contif.f
+  contil.f
+  contra.f
+  contrf.f
+  contrl.f
+  coords.f
+  cretrn.f
+  crlnfd.f
+  curvec.f
+  curvem.f
+  defpen.f
+  degree.f
+  devoff.f
+  devon.f
+  ellpse.f
+  endbuf.f
+  enqaxi.f
+  enqcon.f
+  enqcro.f
+  enqdat.c
+  enqerr.f
+  enqhat.f
+  enqinf.f
+  enqioc.f
+  enqmap.f
+  enqmsk.f
+  enqpos.f
+  enqrun.f
+  enqtim.c
+  enqtra.f
+  erase.f
+  errbar.f
+  errors.f
+  filcol.f
+  filend.f
+  filinf.f
+  filnam.f
+  filoff.f
+  filon.f
+  fllbnd.f
+  frame.f
+  full.f
+  gargs.f
+  gksdev.f
+  gpstop.f
+  grad.f
+  graphc.f
+  graphf.f
+  graphx.f
+  gratic.f
+  gratsi.f
+  graxl.f
+  graxli.f
+  graxyl.f
+  grayl.f
+  grayli.f
+  grend.f
+  hatang.f
+  hatcol.f
+  hatdef.f
+  hatdup.f
+  hatlsh.f
+  hatlst.f
+  hatopt.f
+  hatpch.f
+  hatphs.f
+  hatsft.f
+  hatype.f
+  histgm.f
+  hmenu.f
+  hrdchr.f
+  hrdlin.f
+  hsi.f
+  hsv.f
+  incbar.f
+  inchis.f
+  intens.f
+  iochnl.f
+  isosur.f
+  lbcols.f
+  linef.f
+  locate.f
+  lstcol.f
+  mapfol.f
+  mapxl.f
+  mapxyl.f
+  mapyl.f
+  marker.f
+  mask.f
+  matcol.f
+  move.f
+  movept.f
+  mskchr.f
+  mulbar.f
+  mulhis.f
+  offbar.f
+  paper.f
+  pcsend.f
+  picinf.f
+  picnam.f
+  picnow.f
+  picsav.f
+  pictur.f
+  pieang.f
+  piecht.f
+  pielbl.f
+  pielbm.f
+  place.f
+  plotne.f
+  plotnf.f
+  plotst.f
+  pspace.f
+  ptgraf.f
+  ptjoin.f
+  ptplot.f
+  qadrnt.f
+  radian.f
+  regrid.f
+  rgb.f
+  rotate.f
+  scale.f
+  scales.f
+  scalsi.f
+  scaxl.f
+  scaxli.f
+  scaxyl.f
+  scayl.f
+  scayli.f
+  secell.f
+  selbuf.f
+  surang.f
+  suraxe.f
+  surbas.f
+  surcl4.f
+  surcol.f
+  surcon.f
+  surcut.f
+  surfl4.f
+  surflc.f
+  surind.f
+  surlit.f
+  surplt.f
+  surref.f
+  surrot.f
+  sursca.f
+  surshd.f
+  surskl.f
+  swichr.f
+  tablet.f
+  tclipa.f
+  tpict.f
+  unlbuf.f
+  unmask.f
+  vmenu.f
+  winchr.f
+  xaxis.f
+  xaxisi.f
+  xaxisl.f
+  xgrat.f
+  xgrati.f
+  xgratl.f
+  xscale.f
+  xscali.f
+  xscall.f
+  yaxis.f
+  yaxisi.f
+  yaxisl.f
+  ygrat.f
+  ygrati.f
+  ygratl.f
+  yscale.f
+  yscali.f
+  yscall.f
+  colset.f
+  cspace.f
+  ctrang.f
+  ctrori.f
+  cursor.f
+  hchtky.f
+  hls.f
+  intrp1.f
+  intrp2.f
+  plotcs.f
+  point.f
+  seccir.f
+  tcsend.f
+  typest.f
+  vchtky.f
+  winfol.f
+  g0cfl1.f
+  g0ctia.f
+  g0ctra.f
+  g0divl.f
+  g0fram.f
+  g0olap.f
+  g0plax.f
+  g0play.f
+  g0plxl.f
+  g0plyl.f
+  g0scl4.f
+  g0scut.f
+  g0sfl4.f
+  g0sflc.f
+  g0sini.f
+  g0splt.f
+  g0sshd.f
+  g0tick.f
+  g0vecs.f
+  box.f
+  ctrfnt.f
+  ctrobl.f
+  enqchr.f
+  enqlin.f
+  hlinfd.f
+  hspace.f
+  italic.f
+  lincol.f
+  map.f
+  pcscen.f
+  suffix.f
+  thick.f
+  undlin.f
+  g0cfl2.f
+  g0cfl3.f
+  g0cfl4.f
+  g0cplt.f
+  g0gpos.f
+  g0insd.f
+  g0sadd.f
+  g0sax1.f
+  g0sclp.f
+  g0sdel.f
+  g0shad.f
+  g0sind.f
+  g0smat.f
+  curveo.f
+  line.f
+  linefd.f
+  plotnc.f
+  plotni.f
+  tcscen.f
+  typene.f
+  g0cfl5.f
+  g0intr.f
+  g0sax2.f
+  g0scpt.f
+  g0sflp.f
+  join.f
+  normal.f
+  space.f
+  supfix.f
+  typecsb.f
+  typenc.f
+  typenf.f
+  typeni.f
+  g0auto.f
+  g0curv.f
+  g0divs.f
+  window.f
+  g0coni.f
+  g0sizs.f
+  positn.f
+  ctrsiz.f
+  ctrslp.f
+  scarot.f
+  unloc.f
+  ctrmag.f
+  g0mapp.f
+  g0erms.f
+  g0mesg.f
+  g4nexr.f
+  g4nexs.f
+  g4nexi.f
+  g4nexc.f
+)
+
+add_library(grid_decode)
+target_sources(grid_decode PRIVATE
+  g1clsnb.f
+  g1cmlna.f
+  g1dviode.f
+  g1erms.f
+  g1hrdwde.f
+  g1initde.f
+  g2buff.f
+  g2ermsa.f
+  g2file.f
+  g2shutb.f
+  g2sysi.F
+  g3flinc.f
+  g3flsvb.f
+  g3grina.f
+  g3initc.f
+  g3linke.f
+  g3sysi.f
+  g4bacod.f
+  g4cocod.f
+  g4getb.c
+  g4getc.c
+  g4getk.c
+  g4putb.c
+  g4putc.c
+  g4putk.c
+  lenstr.f
+  )
+
+add_library(grid_hpgl2)
+target_sources(grid_hpgl2 PRIVATE
+  g1buffh4.f
+  g1char.f
+  g1chio.F
+  g1chsp.f
+  g1clip.f
+  g1cls0.f
+  g1cls2.f
+  g1cls3.f
+  g1cls4.f
+  g1cls5.f
+  g1cls7.f
+  g1cmlna.f
+  g1conc.f
+  g1crv1.f
+  g1disc.f
+  g1dviof.f
+  g1erms.f
+  g1filb.f
+  g1hrdwh9.f
+  g1inith9.f
+  g1line.f
+  g1mapp.f
+  g1marv.f
+  g1movc.f
+  g1shad.f
+  g1spec.f
+  g1tranh9.f
+  g1vecth1.f
+  g2buff.f
+  g2ermsb.f
+  g2file.f
+  g2shutb.f
+  g2sysi.F
+  g3flina.f
+  g3flsva.f
+  g3grina.f
+  g3initc.f
+  g3linkc.f
+  g3sysi.f
+  g4bacod.f
+  g4cocod.f
+  g4getb.c
+  g4getc.c
+  g4getk.c
+  g4putb.c
+  g4putc.c
+  g4putk.c
+  lenstr.f
+)
+
+add_library(grid_postcl)
+target_sources(grid_postcl PRIVATE
+g3flina.f
+g3flsva.f
+g3grina.f
+g3initc.f
+g3linkc.f
+g3sysi.f
+g1cls0.f
+g1cls2.f
+g1cls3.f
+g1cls4.f
+g1cls5.f
+g1cls7.f
+g1initapc.f
+g1marv.f
+g1char.f
+g1chsp.f
+g1conc.f
+g1crv1.f
+g1hrdwapc.f
+g1mapp.f
+g1movc.f
+g1chio.F
+g1cmlna.f
+g1line.f
+g1spec.f
+g1clip.f
+g1filb.f
+g1tranapc.f
+g1disc.f
+g1shad.f
+g1vectap.f
+g1buffa.f
+g1dvioap.f
+g1erms.f
+g2buff.f
+g2file.f
+g2sysi.F
+g2shutb.f
+g2ermsb.f
+g4bacod.f
+g4cocod.f
+g4getb.c
+g4getc.c
+g4getk.c
+g4putb.c
+g4putc.c
+g4putk.c
+lenstr.f
+)
+
+add_library(grid_postsc)
+target_sources(grid_postsc PRIVATE
+g3flina.f
+g3flsva.f
+g3grina.f
+g3initc.f
+g3linkc.f
+g3sysi.f
+g1cls0.f
+g1cls2.f
+g1cls3.f
+g1cls4.f
+g1cls5.f
+g1cls7.f
+g1initap.f
+g1marv.f
+g1char.f
+g1chsp.f
+g1conc.f
+g1crv1.f
+g1hrdwap.f
+g1mapp.f
+g1movc.f
+g1chio.F
+g1cmlna.f
+g1line.f
+g1spec.f
+g1clip.f
+g1filb.f
+g1tranap.f
+g1disc.f
+g1shad.f
+g1vectap.f
+g1buffa.f
+g1dvioap.f
+g1erms.f
+g2buff.f
+g2file.f
+g2sysi.F
+g2shutb.f
+g2ermsb.f
+g4bacod.f
+g4cocod.f
+g4getb.c
+g4getc.c
+g4getk.c
+g4putb.c
+g4putc.c
+g4putk.c
+lenstr.f
+)
+
+add_library(grid_trenc)
+target_sources(grid_trenc PRIVATE
+g3flinc.f
+g3flsvb.f
+g3grina.f
+g3initc.f
+g3linke.f
+g3sysi.f
+g1clsna.f
+g1inittg.f
+g1hrdwtg.f
+g1cmlna.f
+g1trantg.f
+g1dviotg.f
+g1erms.f
+g2buff.f
+g2file.f
+g2sysi.F
+g2shutb.f
+g2ermsa.f
+g4bacod.f
+g4cocod.f
+g4getb.c
+g4getc.c
+g4getk.c
+g4putb.c
+g4putc.c
+g4putk.c
+lenstr.f
+)
+
+add_library(grid_xghost)
+target_sources(grid_xghost PRIVATE
+g3flina.f
+g3flsva.f
+g3grinb.f
+g3initc.f
+g3linkc.f
+g3sysi.f
+g1cls0.f
+g1cls2.f
+g1cls3.f
+g1cls4.f
+g1cls5.f
+g1cls7.f
+g1initx11.f
+g1marv.f
+g1char.f
+g1chsp.f
+g1conc.f
+g1crv1.f
+g1hrdwx11.f
+g1mapp.f
+g1movc.f
+g1chio.F
+g1cmlna.f
+g1line.f
+g1spec.f
+g1clip.f
+g1filb.f
+g1tranx11.f
+g1disc.f
+g1shad.f
+g1vectx11.f
+g1erms.f
+g2buff.f
+g2file.f
+g2sysi.F
+g2shutb.f
+g2ermsb.f
+g4bacod.f
+g4cocod.f
+g4getb.c
+g4getc.c
+g4getk.c
+g4putb.c
+g4putc.c
+g4putk.c
+lenstr.f
+xgenieIF.c
+Opcodes.h
+xgenie.h
+)
+
+add_library(hpgl2)
+target_sources(hpgl2 PRIVATE
+g3flinb.f
+g3flsvb.f
+g3grina.f
+g3initb.f
+g3linkb.f
+g3sysi.f
+g1cls0.f
+g1cls2.f
+g1cls3.f
+g1cls4.f
+g1cls5.f
+g1cls7.f
+g1inith9.f
+g1marv.f
+g1char.f
+g1chsp.f
+g1conc.f
+g1crv1.f
+g1hrdwh9.f
+g1mapp.f
+g1movc.f
+g1chio.F
+g1cmlna.f
+g1line.f
+g1spec.f
+g1clip.f
+g1filb.f
+g1tranh9.f
+g1disc.f
+g1shad.f
+g1vecth1.f
+g1buffh4.f
+g1dviof.f
+g1erms.f
+g4bacod.f
+g4cocod.f
+g4getb.c
+g4getc.c
+g4getk.c
+g4putb.c
+g4putc.c
+g4putk.c
+lenstr.f
+)
+
+add_library(postcl)
+target_sources(postcl PRIVATE
+g3flinb.f
+g3flsvb.f
+g3grina.f
+g3initb.f
+g3linkb.f
+g3sysi.f
+g1cls0.f
+g1cls2.f
+g1cls3.f
+g1cls4.f
+g1cls5.f
+g1cls7.f
+g1initapc.f
+g1marv.f
+g1char.f
+g1chsp.f
+g1conc.f
+g1crv1.f
+g1hrdwapc.f
+g1mapp.f
+g1movc.f
+g1chio.F
+g1cmlna.f
+g1line.f
+g1spec.f
+g1clip.f
+g1filb.f
+g1tranapc.f
+g1disc.f
+g1shad.f
+g1vectap.f
+g1buffa.f
+g1dvioap.f
+g1erms.f
+g4bacod.f
+g4cocod.f
+g4getb.c
+g4getc.c
+g4getk.c
+g4putb.c
+g4putc.c
+g4putk.c
+lenstr.f
+)
+
+add_library(postsc)
+target_sources(postsc PRIVATE
+g3flinb.f
+g3flsvb.f
+g3grina.f
+g3initb.f
+g3linkb.f
+g3sysi.f
+g1cls0.f
+g1cls2.f
+g1cls3.f
+g1cls4.f
+g1cls5.f
+g1cls7.f
+g1initap.f
+g1marv.f
+g1char.f
+g1chsp.f
+g1conc.f
+g1crv1.f
+g1hrdwap.f
+g1mapp.f
+g1movc.f
+g1chio.F
+g1cmlna.f
+g1line.f
+g1spec.f
+g1clip.f
+g1filb.f
+g1tranap.f
+g1disc.f
+g1shad.f
+g1vectap.f
+g1buffa.f
+g1dvioap.f
+g1erms.f
+g4bacod.f
+g4cocod.f
+g4getb.c
+g4getc.c
+g4getk.c
+g4putb.c
+g4putc.c
+g4putk.c
+lenstr.f
+)
+
+add_library(trand)
+target_sources(trand PRIVATE
+enqrun.f
+g5lodi.f
+g5newfa.f
+g5trinb.f
+g5erms.f
+lenstr.f
+)
+
+add_library(trenc)
+target_sources(trenc PRIVATE
+g3flind.f
+g3flsvb.f
+g3grina.f
+g3initb.f
+g3linkd.f
+g3sysi.f
+g1clsna.f
+g1inittg.f
+g1hrdwtg.f
+g1cmlna.f
+g1trantg.f
+g1dviotg.f
+g1erms.f
+g4bacod.f
+g4cocod.f
+g4getb.c
+g4getc.c
+g4getk.c
+g4putb.c
+g4putc.c
+g4putk.c
+)
+
+add_library(xghost)
+target_sources(xghost PRIVATE
+g3flsvb.f
+g3grinb.f
+g3initb.f
+g3linkb.f
+g3sysi.f
+g1cls0.f
+g1cls2.f
+g1cls3.f
+g1cls4.f
+g1cls5.f
+g1cls7.f
+g1initx11.f
+g1marv.f
+g1char.f
+g1chsp.f
+g1conc.f
+g1crv1.f
+g1hrdwx11.f
+g1mapp.f
+g1movc.f
+g1chio.F
+g1cmlna.f
+g1line.f
+g1spec.f
+g1clip.f
+g1filb.f
+g1tranx11.f
+g1disc.f
+g1shad.f 
+g1vectx11.f 
+g1erms.f
+g4bacod.f
+g4cocod.f
+g4getb.c
+g4getc.c
+g4getk.c
+g4putb.c
+g4putc.c
+g4putk.c
+lenstr.f
+xgenieIF.c
+Opcodes.h
+xgenie.h
+)
+
+target_compile_definitions(decode PRIVATE
+  GHOST_RECL_UNIT=4
+  GHOST_LIBDIR="${CMAKE_INSTALL_LIBDIR}"
+  GHOST_LIBEXECDIR="${CMAKE_INSTALL_LIBEXECDIR}"
+  USEUNDERSCORE
+  LITTLE_ENDIAN
+)
+
+target_compile_definitions(grid PRIVATE
+  GHOST_RECL_UNIT=4
+  GHOST_LIBDIR="${CMAKE_INSTALL_LIBDIR}"
+  GHOST_LIBEXECDIR="${CMAKE_INSTALL_LIBEXECDIR}"
+  USEUNDERSCORE
+  LITTLE_ENDIAN
+)
+
+target_compile_definitions(ghost PRIVATE
+  GHOST_RECL_UNIT=4
+  GHOST_LIBDIR="${CMAKE_INSTALL_LIBDIR}"
+  GHOST_LIBEXECDIR="${CMAKE_INSTALL_LIBEXECDIR}"
+  USEUNDERSCORE
+  LITTLE_ENDIAN
+)
+
+target_compile_definitions(grid_decode PRIVATE
+  GHOST_RECL_UNIT=4
+  GHOST_LIBDIR="${CMAKE_INSTALL_LIBDIR}"
+  GHOST_LIBEXECDIR="${CMAKE_INSTALL_LIBEXECDIR}"
+  USEUNDERSCORE
+  LITTLE_ENDIAN
+)
+
+target_compile_definitions(grid_hpgl2 PRIVATE
+  GHOST_RECL_UNIT=4
+  GHOST_LIBDIR="${CMAKE_INSTALL_LIBDIR}"
+  GHOST_LIBEXECDIR="${CMAKE_INSTALL_LIBEXECDIR}"
+  USEUNDERSCORE
+  LITTLE_ENDIAN
+)
+
+target_compile_definitions(grid_postcl PRIVATE
+  GHOST_RECL_UNIT=4
+  GHOST_LIBDIR="${CMAKE_INSTALL_LIBDIR}"
+  GHOST_LIBEXECDIR="${CMAKE_INSTALL_LIBEXECDIR}"
+  USEUNDERSCORE
+  LITTLE_ENDIAN
+)
+
+target_compile_definitions(grid_postsc PRIVATE
+  GHOST_RECL_UNIT=4
+  GHOST_LIBDIR="${CMAKE_INSTALL_LIBDIR}"
+  GHOST_LIBEXECDIR="${CMAKE_INSTALL_LIBEXECDIR}"
+  USEUNDERSCORE
+  LITTLE_ENDIAN
+)
+
+target_compile_definitions(grid_trenc PRIVATE
+  GHOST_RECL_UNIT=4
+  GHOST_LIBDIR="${CMAKE_INSTALL_LIBDIR}"
+  GHOST_LIBEXECDIR="${CMAKE_INSTALL_LIBEXECDIR}"
+  USEUNDERSCORE
+  LITTLE_ENDIAN
+)
+
+target_compile_definitions(grid_xghost PRIVATE
+  GHOST_RECL_UNIT=4
+  GHOST_LIBDIR="${CMAKE_INSTALL_LIBDIR}"
+  GHOST_LIBEXECDIR="${CMAKE_INSTALL_LIBEXECDIR}"
+  USEUNDERSCORE
+  LITTLE_ENDIAN
+)
+
+target_compile_definitions(hpgl2 PRIVATE
+  GHOST_RECL_UNIT=4
+  GHOST_LIBDIR="${CMAKE_INSTALL_LIBDIR}"
+  GHOST_LIBEXECDIR="${CMAKE_INSTALL_LIBEXECDIR}"
+  USEUNDERSCORE
+  LITTLE_ENDIAN
+)
+
+target_compile_definitions(postcl PRIVATE
+  GHOST_RECL_UNIT=4
+  GHOST_LIBDIR="${CMAKE_INSTALL_LIBDIR}"
+  GHOST_LIBEXECDIR="${CMAKE_INSTALL_LIBEXECDIR}"
+  USEUNDERSCORE
+  LITTLE_ENDIAN
+)
+
+target_compile_definitions(postsc PRIVATE
+  GHOST_RECL_UNIT=4
+  GHOST_LIBDIR="${CMAKE_INSTALL_LIBDIR}"
+  GHOST_LIBEXECDIR="${CMAKE_INSTALL_LIBEXECDIR}"
+  USEUNDERSCORE
+  LITTLE_ENDIAN
+)
+
+target_compile_definitions(trand PRIVATE
+  GHOST_RECL_UNIT=4
+  GHOST_LIBDIR="${CMAKE_INSTALL_LIBDIR}"
+  GHOST_LIBEXECDIR="${CMAKE_INSTALL_LIBEXECDIR}"
+  USEUNDERSCORE
+  LITTLE_ENDIAN
+)
+
+target_compile_definitions(trenc PRIVATE
+  GHOST_RECL_UNIT=4
+  GHOST_LIBDIR="${CMAKE_INSTALL_LIBDIR}"
+  GHOST_LIBEXECDIR="${CMAKE_INSTALL_LIBEXECDIR}"
+  USEUNDERSCORE
+  LITTLE_ENDIAN
+)
+
+target_compile_definitions(xghost PRIVATE
+  GHOST_RECL_UNIT=4
+  GHOST_LIBDIR="${CMAKE_INSTALL_LIBDIR}"
+  GHOST_LIBEXECDIR="${CMAKE_INSTALL_LIBEXECDIR}"
+  USEUNDERSCORE
+  LITTLE_ENDIAN
+)
+
+set(GHOST_TARGETS
+  decode
+  grid
+  ghost
+  grid_decode
+  grid_hpgl2
+  grid_postcl
+  grid_postsc
+  grid_trenc
+  grid_xghost
+  hpgl2
+  postcl
+  postsc
+  trand
+  trenc
+  xghost
+  )
+
+install(TARGETS ${GHOST_TARGETS}
+  EXPORT ghostTargets
+  LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+  ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+  RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
+  INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
+  )
