@@ -11,6 +11,7 @@ include(GNUInstallDirs)
 add_subdirectory(src/lib)
 add_subdirectory(src/libexec)
 add_subdirectory(src/bin)
+add_subdirectory(src/hershey)
 
 include(CMakePackageConfigHelpers)
 configure_package_config_file(ghostConfig.cmake.in ghostConfig.cmake
