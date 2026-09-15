@@ -598,6 +598,7 @@ g4putc.c
 g4putk.c
 lenstr.f
 xgenieIF.c
+xgenie_args.f90
 Opcodes.h
 xgenie.h
 )

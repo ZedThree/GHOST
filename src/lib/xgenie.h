@@ -70,14 +70,6 @@
 #  define STDCALL
 #endif
 
-#ifndef __INTEL_COMPILER
-#ifdef __GNUC__
-#  undef IARGC
-#  undef GETARG
-#  define IARGC  _gfortran_iargc
-#  define GETARG _gfortran_getarg_i8
-#endif
-#endif
 
 /****************  GLOBAL VARIABLES     ********************************/
 /****************  STATIC VARIABLES     ********************************/
