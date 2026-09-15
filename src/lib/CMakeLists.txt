@@ -613,7 +613,6 @@ lenstr.f
 )
 
 add_library(ghost::ghost ALIAS ghost)
-target_link_libraries(ghost PUBLIC grid_xghost)
 
 set(GHOST_TARGETS
   grid
