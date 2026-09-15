@@ -1,3 +1,9 @@
 @PACKAGE_INIT@
 
+# Whether this GHOST was built with real/complex promoted to double precision
+# (-fdefault-real-8 / -r8). GHOST has no explicit kinds, so a caller's REAL
+# arguments must match: check this before linking rather than inspecting the
+# promotion flags on the imported targets.
+set(ghost_ENABLE_DOUBLE @GHOST_ENABLE_DOUBLE@)
+
 include ("${CMAKE_CURRENT_LIST_DIR}/ghostTargets.cmake")
