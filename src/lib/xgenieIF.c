@@ -48,12 +48,9 @@ static char xgenieIF_cSID[] = "@(#)xgenieIF.c	1.1.1.2 11/7/91";
 static char ServerPath[256];
 /****************  FUNCTION DECLARATIONS********************************/
 void STDCALL XINIT();
-int STDCALL IARGC();
-#ifdef _WIN32
-void STDCALL GETARG(int*,char*,int,int*);
-#else
-void STDCALL GETARG(int*,char*,int);
-#endif
+/* Fortran 2003 wrappers in xgenie_args.f90 */
+int  ghost_arg_count(void);
+void ghost_get_arg(int, char*, int);
 int  GetArgCount();
 void GetArg(int*, char*, int);
 void STDCALL XPOLYL(int* xpoints, int* ypoints, int* numpoints);
@@ -131,7 +128,7 @@ void STDCALL XINIT(iresx,iresy,idepth)
 
 /*
  * 0. Command line argument processing.
- *    have to call the FORTRAN functions IARGC and GETARG
+ *    via the Fortran 2003 wrappers in xgenie_args.f90
  */
 
   argc = GetArgCount();
@@ -292,11 +289,7 @@ void STDCALL XINIT(iresx,iresy,idepth)
  ***********************************************************************/
 int GetArgCount()
 {
-#ifdef hp
-  return(IARGC()-1);
-#else
-  return(IARGC());
-#endif
+  return(ghost_arg_count());
 }
 /************************************************************************
  * Function Name   :  GetArg
@@ -308,16 +301,7 @@ void GetArg(i,Buffer,len)
      char *Buffer;
      int len;
 {
-#if hp
-  int j = (*i)+1;
-  /* HP arg numbers are all incremented by 1 */
-  GETARG(&j,Buffer,len);
-#elif defined _WIN32
-  int status;
-  GETARG(i,Buffer,len,&status);
-#else
-  GETARG(i,Buffer,len);
-#endif
+  ghost_get_arg(*i,Buffer,len);
 }
 
 
